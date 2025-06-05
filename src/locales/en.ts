@@ -4,5 +4,5 @@ export default {
   skillsLink: 'Skills',
   expLink: 'Experience',
   projectsLink: 'Projects',
-  contactLink: 'Get in touch!'
+  contactLink: 'Get in touch!',
 }
