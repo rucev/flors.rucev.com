@@ -1,0 +1,1 @@
+export type View = 'landing' | 'skills' | 'projects' | 'exp' | 'contact'

@@ -4,6 +4,34 @@
 
 @theme {
   --font-main: "Josefin Sans", sans-serif;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  --animate-scale-1: size 2s ease-in-out infinite;
+  --animate-scale-2: size 3s ease-in-out infinite;
+  --animate-scale-3: size 4s ease-in-out infinite;
+
+  @keyframes wiggle {
+
+    0%,
+    100% {
+      transform: rotate(6deg);
+    }
+
+    50% {
+      transform: rotate(-6deg);
+    }
+  }
+
+  @keyframes size {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(0.95);
+    }
+  }
 }
 
 @plugin "@tailwindcss/typography";
@@ -19,4 +47,34 @@
       neutral: dark grey,
       content: white
     */
+}
+
+
+
+@components {
+
+  .hover-underline::after,
+  .hover-underline::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ff0000, #00ffff);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+  }
+
+  .hover-underline::before {
+    top: -5px;
+    bottom: auto;
+    transform-origin: left;
+  }
+
+  .hover-underline:hover::after,
+  .hover-underline:hover::before {
+    transform: scaleX(1);
+  }
 }
