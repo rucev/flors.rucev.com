@@ -10,10 +10,10 @@ const Footer = ({ lang, setIsMenuOpen, isMenuOpen }: { lang: string, isMenuOpen:
       </button>
       <div className="flex flex-row gap-5 items-center">
         <span>hi@rucev.com</span>
-        <a className="hover:cursor-pointer hover:text-accent hover:animate-wiggle px-1 py-0.5 w-fit">
+        <a href="https://github.com/rucev" target="_blank" rel="noopener" aria-label="Open Flors Rueda GitHub profile in a new tab" className="hover:cursor-pointer hover:text-accent hover:animate-wiggle px-1 py-0.5 w-fit">
           <i className="bi bi-github"></i>
         </a>
-        <a className="hover:cursor-pointer hover:text-accent hover:animate-wiggle px-1 py-0.5">
+        <a href="https://www.linkedin.com/in/flors-rueda" target="_blank" rel="noopener" aria-label="Open Flors Rueda Linkedin profile in a new tab" className="hover:cursor-pointer hover:text-accent hover:animate-wiggle px-1 py-0.5">
           <i className="bi bi-linkedin"></i>
         </a>
       </div>

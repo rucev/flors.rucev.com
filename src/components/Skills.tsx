@@ -43,9 +43,8 @@ const Skills = ({ lang }: { lang: string }) => {
       <div className="collapse-title font-semibold">
         {lang === 'es' ? SKILLS_TITLES[3].es : lang === 'ca' ? SKILLS_TITLES[3].ca : SKILLS_TITLES[3].en}
       </div>
-      <div className="collapse-content text-sm">
-        <div className="w-full flex flex-wrap gap-2">
-          {lang === 'es' ? SKILLS_DETAILS.practices.es : lang === 'ca' ? SKILLS_DETAILS.practices.ca : SKILLS_DETAILS.practices.en}
+      <div className="collapse-content text-sm text-justify">
+        <div className="w-full flex flex-wrap gap-2" dangerouslySetInnerHTML={{ __html: lang === 'es' ? SKILLS_DETAILS.practices.es : lang === 'ca' ? SKILLS_DETAILS.practices.ca : SKILLS_DETAILS.practices.en }}>
         </div>
       </div>
     </div>
@@ -65,8 +64,8 @@ const Skills = ({ lang }: { lang: string }) => {
       <div className="collapse-title font-semibold">
         {lang === 'es' ? SKILLS_TITLES[5].es : lang === 'ca' ? SKILLS_TITLES[5].ca : SKILLS_TITLES[5].en}
       </div>
-      <div className="collapse-content text-sm">
-        <div className="w-full flex flex-wrap gap-2 text-xs" dangerouslySetInnerHTML={{ __html: lang === 'es' ? SKILLS_DETAILS.psy.es : lang === 'ca' ? SKILLS_DETAILS.psy.ca : SKILLS_DETAILS.psy.en }}>
+      <div className="collapse-content text-sm text-justify">
+        <div className="w-full flex flex-wrap gap-2" dangerouslySetInnerHTML={{ __html: lang === 'es' ? SKILLS_DETAILS.psy.es : lang === 'ca' ? SKILLS_DETAILS.psy.ca : SKILLS_DETAILS.psy.en }}>
         </div>
       </div>
     </div>

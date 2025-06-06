@@ -42,7 +42,7 @@ const App = () => {
   return (
     <>
       <main className="font-main bg-base-300 overflow-x-hidden max-w-screen min-h-screen h-fit lg:max-h-screen w-full flex flex-col justify-between pt-7 md:pt-10 z-10">
-        <div className="flex flex-col px-5 md:px-10 gap-1 max-w-11/12">
+        <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen">
           <div className="flex flex-col w-full">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{locale.titleName}</h1>
             <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{locale.role}</h2>

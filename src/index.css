@@ -49,8 +49,7 @@
 
 
 
-@components {
-  b: {
-    @apply font-bold text-primary
-  }
+
+b {
+  @apply font-bold text-primary
 }
