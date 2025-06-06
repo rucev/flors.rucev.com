@@ -6,6 +6,7 @@ import NavMenu from "./components/NavMenu"
 import type { View } from "./interfaces"
 import Skills from "./components/Skills"
 import Exp from "./components/Exp"
+import Projects from "./components/Projects"
 
 const App = () => {
   const [lang, setLang] = useState<string>('en')
@@ -44,7 +45,7 @@ const App = () => {
             <NavMenu locale={locale} view={view} setView={setView} />
             {view === 'skills' && <Skills lang={lang} />}
             {view === 'exp' && <Exp lang={lang} />}
-            {view === 'projects' && <h1>projects</h1>}
+            {view === 'projects' && <Projects lang={lang} />}
             {view === 'contact' && <h1>contact</h1>}
           </div>
         </div>
@@ -55,7 +56,7 @@ const App = () => {
       {
         <ul ref={menuRef} className={`${isMenuOpen ? "dropdown-content absolute bottom-10 ml-5 menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm" : "hidden"}`}>
           {LOCALES.map(locale => {
-            if (locale.locale !== lang) return <li onClick={() => { setLang(locale.locale); setIsMenuOpen(false) }} className="pl-5 py-1 w-full cursor-pointer rounded-xl hover:bg-base-200">{locale.tag}</li>
+            if (locale.locale !== lang) return <li key={locale.tag} onClick={() => { setLang(locale.locale); setIsMenuOpen(false) }} className="pl-5 py-1 w-full cursor-pointer rounded-xl hover:bg-base-200">{locale.tag}</li>
           })}
         </ul>
       }
