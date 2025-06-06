@@ -8,6 +8,9 @@ import Skills from "./components/Skills"
 import Exp from "./components/Exp"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
+import SubmitToast from "./components/SubmitToast"
+import ErrorToast from "./components/ErrorToat"
+import TermsModal from "./components/TermsModal"
 
 const App = () => {
   const [lang, setLang] = useState<string>('en')
@@ -16,7 +19,6 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false)
   const [isMessageSubmited, setIsMessageSubmited] = useState(false)
   const [hasErrorHappen, setHasErrorHappen] = useState(false)
-  const [displayTermsModal, setDisplayTermsModal] = useState(false)
   const menuRef = useRef<HTMLUListElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
 
@@ -50,12 +52,13 @@ const App = () => {
             {view === 'skills' && <Skills lang={lang} />}
             {view === 'exp' && <Exp lang={lang} />}
             {view === 'projects' && <Projects lang={lang} />}
-            {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} toTerms={setDisplayTermsModal} setMessageSubmitted={setIsMessageSubmited} />}
+            {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} />}
           </div>
         </div>
         <div ref={footerRef}>
           <Footer lang={lang} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
         </div>
+        <TermsModal lang={lang} />
       </main>
       {
         <ul ref={menuRef} className={`${isMenuOpen ? "dropdown-content absolute bottom-10 ml-5 menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm" : "hidden"}`}>
@@ -65,9 +68,16 @@ const App = () => {
         </ul>
       }
       {
+        isMessageSubmited && <SubmitToast lang={lang} onClose={() => setIsMessageSubmited(false)} />
+      }
+      {
+        hasErrorHappen && <ErrorToast lang={lang} onClose={() => setHasErrorHappen(false)} />
+      }
+      {
         view === 'landing' &&
         <LandingBg />
       }
+
     </>
   )
 }

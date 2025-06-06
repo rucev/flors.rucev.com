@@ -3,33 +3,37 @@ import { useEffect, useState } from 'react';
 
 
 
-const Contact = ({ setMessageSubmitted, setErrorOnSubmit, toTerms }: { setMessageSubmitted: Function, setErrorOnSubmit: Function, toTerms: Function }) => {
-  const [isNameValid, setNameValid] = useState<Boolean | null>(null);
-  const [isEmailValid, setEmailValid] = useState<Boolean | null>(null);
-  const [isMessageValid, setMessageValid] = useState<Boolean | null>(null);
-  const [topicsSelected, setTopicsSelected] = useState(['other']);
-  const topicsAvailable = ['partnership', 'work', 'content', 'feedback', 'bug', 'privacy', 'other'];
-  const [isTermsAccepted, setTermsAccepted] = useState<Boolean | null>(null);
+const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitted: Function, setErrorOnSubmit: Function }) => {
+  const [isNameValid, setNameValid] = useState<Boolean | null>(null)
+  const [isEmailValid, setEmailValid] = useState<Boolean | null>(null)
+  const [isMessageValid, setMessageValid] = useState<Boolean | null>(null)
+  const [topicsSelected, setTopicsSelected] = useState(['other'])
+  const topicsAvailable = ['partnership', 'work', 'content', 'feedback', 'bug', 'privacy', 'other']
+  const [isTermsAccepted, setTermsAccepted] = useState<Boolean | null>(null)
+  const [isTopicRelevant, setIsTopicRelevant] = useState<Boolean>(true)
 
-  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORM_ENDPOINT, {});
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORM_ENDPOINT, {})
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    try {
+      event.preventDefault()
 
-    if (isNameValid === null) setNameValid(false)
-    if (isEmailValid === null) setEmailValid(false)
-    if (isMessageValid === null) setMessageValid(false)
-    if (isTermsAccepted === null) setTermsAccepted(false)
+      if (isNameValid === null) setNameValid(false)
+      if (isEmailValid === null) setEmailValid(false)
+      if (isMessageValid === null) setMessageValid(false)
+      if (isTermsAccepted === null) setTermsAccepted(false)
 
-    if (!isNameValid && !isEmailValid && !isMessageValid && !isTermsAccepted) {
-      return
+      if (!isTopicRelevant && !isNameValid && !isEmailValid && !isMessageValid && !isTermsAccepted) {
+        return
+      }
+
+      if (isTopicRelevant && isNameValid && isEmailValid && isMessageValid && isTermsAccepted) {
+        handleSubmit(event)
+        return
+      } else setErrorOnSubmit(true)
+    } catch (error) {
+      setErrorOnSubmit(true)
     }
-
-    if (isNameValid && isEmailValid && isMessageValid && isTermsAccepted) {
-      console.log('sending!', import.meta.env.VITE_FORM_ENDPOINT, event)
-      handleSubmit(event)
-      return
-    } else setErrorOnSubmit(true)
   }
 
   useEffect(() => {
@@ -74,7 +78,11 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, toTerms }: { setMessag
     } else {
       setMessageValid(true)
     }
-  };
+  }
+
+  const handleRelevantChange = () => {
+    setIsTopicRelevant(false)
+  }
 
   const handleTopicClick = (topic: string) => {
     const _topicsSelected = [...topicsSelected]
@@ -110,6 +118,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, toTerms }: { setMessag
         }
       </div>
       <form onSubmit={handleFormSubmit} id="form" >
+        <input className="hidden" type="text" id="relevantTopic" onChange={() => handleRelevantChange()} />
         <div className="hidden">
           <input
             id="topics"
@@ -224,8 +233,8 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, toTerms }: { setMessag
             <input checked={!!isTermsAccepted} id="checkbox" type="checkbox" className={`checkbox checkbox-xs ${isTermsAccepted === false ? 'checkbox-error' : 'checkbox-neutral'}`} onChange={() => setTermsAccepted(!isTermsAccepted)} />
             <label htmlFor="checkbox" className="label pl-2 pt-1">
               {'form-agree'}
-              <a aria-label={'aria-label-open-terms'} onClick={() => toTerms(true)} target="_blank" className="underline hover:text-th-p">{'form-privacy'}</a>.
             </label>
+            <a aria-label={'aria-label-open-terms'} onClick={() => { console.log('click'); (document.getElementById('terms_modal') as HTMLDialogElement | null)?.showModal() }} target="_blank" className="underline hover:text-th-p">{'form-privacy'}</a>.
             {
               (isTermsAccepted === false) &&
               <i className="pt-1.5 text-sm pl-2 bi bi-exclamation-triangle pr-2" />
