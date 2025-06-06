@@ -5,6 +5,7 @@ import Footer from "./components/Footer"
 import NavMenu from "./components/NavMenu"
 import type { View } from "./interfaces"
 import Skills from "./components/Skills"
+import Exp from "./components/Exp"
 
 const App = () => {
   const [lang, setLang] = useState<string>('en')
@@ -33,8 +34,8 @@ const App = () => {
 
   return (
     <>
-      <main className="font-main bg-base-300 overflow-x-hidden max-w-screen min-h-screen h-fit lg:max-h-screen w-full lg:overflow-hidden flex flex-col justify-between pt-7 md:pt-10 z-10">
-        <div className="flex flex-col px-5 md:px-20 gap-1 max-w-11/12">
+      <main className="font-main bg-base-300 overflow-x-hidden max-w-screen min-h-screen h-fit lg:max-h-screen w-full flex flex-col justify-between pt-7 md:pt-10 z-10">
+        <div className="flex flex-col px-5 md:px-10 gap-1 max-w-11/12">
           <div className="flex flex-col w-full">
             <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{locale.titleName}</h1>
             <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{locale.role}</h2>
@@ -42,7 +43,7 @@ const App = () => {
           <div className="flex flex-col lg:flex-row w-full">
             <NavMenu locale={locale} view={view} setView={setView} />
             {view === 'skills' && <Skills lang={lang} />}
-            {view === 'exp' && <h1>Exp</h1>}
+            {view === 'exp' && <Exp lang={lang} />}
             {view === 'projects' && <h1>projects</h1>}
             {view === 'contact' && <h1>contact</h1>}
           </div>

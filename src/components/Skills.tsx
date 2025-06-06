@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { SKILLS_DETAILS, SKILLS_TITLES } from "../locales"
 import { BACKEND_BADGES, DEVOPS_BADGES, FRONTEND_BADGES, LIBRARY_BADGES } from "../constants/BADGES"
 
