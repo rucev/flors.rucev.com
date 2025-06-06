@@ -1,3 +1,5 @@
+import type { Project } from "../interfaces";
+
 export const PRIVACY_TEXTS = {
   en: {
     title: "Privacy Policy",
@@ -133,3 +135,153 @@ export const EXPERIENCE = {
     { years: "May 2023 - December 2023", role: 'Junior Frontend Developer', company: 'Beemeral', content: "<li>Built prototypes with <b>React and Next.js</b>, leveraging SSR and CSR for performance and SEO gains.</li><li>Developed <b>interactive features</b> like drag-and-drop interfaces.</li><li>Created visual components using <b>Canvas</b>, <b>Three.js</b>, and <b>CSS animations</b>.</li><li>Assessed prototype performance and user experience, providing <b>detailed documentation</b> of findings.</li>" },
   ]
 }
+
+export const PROJECTS: Project[] = [
+  {
+    id: "fetch",
+    title: {
+      en: "Fetch It!",
+      es: "¡Fetch It!",
+      ca: "Fetch It!",
+    },
+    tags: ["Vue", "TypeScript", "Tailwind", "API", "Vite"],
+    links: [{ name: "web", url: "https://rucev.github.io/fetch-it" }, { name: "github", url: "https://github.com/rucev/fetch-it" }],
+    about: {
+      en: `<p><b>Fetch It!</b> is a <b>lightweight, privacy-first frontend</b> built as an alternative to bloated or invasive API explorers. It offers a clean, performant UI for <em>quick, local testing</em> of APIs.</p>
+         <p>It provides  a responsive and distraction-free interface. No telemetry, no analytics — just fast and focused API interaction using <b>Vue</b> and <b>TypeScript</b>.</p>`,
+      es: `<p><b>Fetch It!</b> es una <b>interfaz ligera y respetuosa con la privacidad</b>, pensada como alternativa a exploradores de APIs más invasivos o complejos. Permite probar APIs de forma <em>rápida, limpia y local</em>.</p>
+         <p>Ofrece una interfaz enfocada y sin distracciones. Sin telemetría ni analíticas, solo interacción directa con APIs usando <b>Vue</b> y <b>TypeScript</b>.</p>`,
+      ca: `<p><b>Fetch It!</b> és una <b>interfície lleugera i orientada a la privacitat</b>, pensada com a alternativa a exploradors d’API més invasius o carregats. Permet fer <em>proves ràpides i locals</em> amb APIs de tercers.</p>
+         <p>Disenyada amb una interfície clara i sense distraccions. Sense analítiques ni telemetria — només <b>Vue</b>, <b>TypeScript</b> i rendiment pur per probar una API.</p>`
+    }
+  },
+  {
+    id: "lemon",
+    title: {
+      en: "Lemon Economists",
+      es: "Lemon Economists",
+      ca: "Lemon Economists",
+    },
+
+    tags: ["Typescript", "Next.js", "Tailwind", "Vercel", "i18n"],
+    links: [{ name: "web", url: "https://www.lemoneconomists.com/" }],
+    about: {
+      en: "<p>This project is a fast, SEO-friendly website built with <b>Next.js</b> and <b>TypeScript</b>, using <b>WordPress as a headless CMS</b>. It serves as both a <b>landing page and a blog</b> for a small business, featuring full <b>multilingual support</b> through localized routes and translated slugs.</p><p>The frontend pulls structured content from the WordPress REST API and adapts dynamically to the selected language, with a custom routing system that handles internationalized paths and metadata.</p>",
+      es: "<p>Este proyecto es un sitio web rápido y optimizado para SEO construido con <b>Next.js</b> y <b>TypeScript</b>, utilizando <b>WordPress como CMS sin cabeza</b>. Funciona como <b>landing page y blog</b> para un pequeño negocio, con soporte completo para <b>múltiples idiomas</b> gracias a rutas localizadas y slugs traducidos.</p><p>El frontend consume contenido desde la API REST de WordPress y lo adapta dinámicamente al idioma seleccionado, con un sistema de rutas personalizado que maneja paths y metadatos internacionalizados.</p>",
+      ca: "<p>Aquest projecte és un lloc web ràpid i optimitzat per SEO, construït amb <b>Next.js</b> i <b>TypeScript</b>, i integrat amb <b>WordPress com a CMS sense cap</b>. Serveix com a <b>landing page i blog</b> per a un petit negoci, amb suport complet per a <b>múltiples idiomes</b> mitjançant rutes localitzades i slugs traduïts.</p><p>El frontend s'adapta automàticament al contingut que arriba de la API REST de WordPress, amb un sistema de rutes personalitzat per gestionar paths i metadades internacionalitzades.</p>"
+    }
+
+  },
+  {
+    id: "ballopolis",
+    title: {
+      en: "Ballopolis: Maze Riders",
+      es: "Ballopolis: Maze Riders",
+      ca: "Ballopolis: Maze Riders",
+    },
+    tags: [
+      "Javascript", "React", "Vite", "NodeJs", "MongoDB", "Socket.io",
+      "Tailwind", "ThreeJs", "AWS", "EC2", "Route53", "Docker", "Nginx", "Github Actions",
+    ],
+    links: [
+      { name: "github", url: "https://github.com/rucev/ballopolis" },
+      { name: "web", url: "https://ballopolis-demo.netlify.app/" },
+    ],
+    about: {
+      en: `<p><b>Ballopolis</b> is a <b>social game</b> where players <b>create and play custom levels</b>. Completing levels rewards players with <b>Customization Credits</b> and unlockable <b>achievements</b> based on creativity and skill.</p>
+       <p>This was my <b>first project deployed on AWS</b>. I learned to use <b>Docker</b>, <b>Nginx</b>, <b>GitHub Actions</b>, and services like <b>Route53</b>. I also integrated <b>Three.js</b> to bring in 3D visuals.</p>
+       <p><em>The full-stack version was sunset due to budget</em>, but a <b>demo remains online</b>.</p>`,
+      es: `<p><b>Ballopolis</b> es un <b>juego social</b> donde los jugadores <b>crean y juegan niveles personalizados</b>. Al completarlos, reciben <b>Créditos de Personalización</b> y <b>logros</b> desbloqueables que premian creatividad y habilidad.</p>
+       <p>Fue mi <b>primer proyecto desplegado en AWS</b>, donde aprendí a usar <b>Docker</b>, <b>Nginx</b>, <b>GitHub Actions</b> y servicios como <b>Route53</b>. También integré <b>Three.js</b> para efectos 3D.</p>
+       <p><em>La versión full-stack se dio de baja por costes</em>, pero <b>el demo sigue disponible</b>.</p>`,
+      ca: `<p><b>Ballopolis</b> és un <b>joc social</b> on els jugadors <b>creen i juguen nivells personalitzats</b>. En completar-los reben <b>Crèdits de Personalització</b> i <b>logros</b> desbloquejables segons la seva creativitat i habilitat.</p>
+       <p>Va ser el meu <b>primer projecte desplegat a AWS</b>, on vaig aprendre a utilitzar <b>Docker</b>, <b>Nginx</b>, <b>GitHub Actions</b> i serveis com <b>Route53</b>. També hi vaig integrar <b>Three.js</b> per visuals en 3D.</p>
+       <p><em>La versió full-stack es va retirar per motius de pressupost</em>, però <b>el demo encara és en línia</b>.</p>`
+    }
+
+  },
+  {
+    id: "aquelarre",
+    title: {
+      en: "Aquelarre: Character Generator",
+      es: "Aquelarre: Generador de Personajes",
+      ca: "Aquelarre: Generador de Personatges",
+    },
+    tags: ["Javascript", "HTML", "CSS"],
+    links: [
+      { name: "github", url: "https://github.com/rucev/AquelarreCharacterGenerator" },
+      { name: "web", url: "https://aquelarrepersonaje.surge.sh/" },
+    ],
+    about: {
+      en: `<p>A <b>character generator</b> based on the classic Spanish RPG <b>Aquelarre</b>, set in a <em>myth-infused medieval Iberia</em>. This tool creates random characters using the game’s traditional <b>dice-based system</b>.</p>`,
+      es: `<p>Un <b>generador de personajes</b> basado en el clásico juego de rol español <b>Aquelarre</b>, ambientado en una <em>Iberia medieval mítica</em>. Crea personajes aleatorios con el <b>sistema clásico de tiradas</b>.</p>`,
+      ca: `<p>Un <b>generador de personatges</b> basat en el clàssic joc de rol espanyol <b>Aquelarre</b>, ambientat en una <em>Ibèria medieval mítica</em>. Crea personatges aleatoris amb el <b>sistema tradicional de daus</b>.</p>`
+    }
+
+  },
+  {
+    id: "pokemontypes",
+    title: {
+      en: "Pokémon Types Game",
+      es: "Juego de Tipos Pokémon",
+      ca: "Joc de Tipus Pokémon",
+    },
+    tags: ["Javascript", "HTML", "CSS", "Python", "React"],
+    links: [
+      { name: "web", url: "https://pokemon-types-game.netlify.app/" },
+      { name: "github", url: "https://github.com/rucev/PokemonTypesGame/" },
+      { name: "info-circle", url: "https://www.linkedin.com/pulse/my-first-steps-web-development-flors-rueda-cebollero" },
+    ],
+    about: {
+      en: `<p>Started as a basic <b>Python rock-paper-scissors</b> game, and evolved into a <b>React app</b> exploring <b>Pokémon type matchups</b>. Players fight the CPU, with score tracking.</p>
+       <p>It was my <b>first web app</b>, and a major step in learning <b>React</b> and <b>web UI design</b>.</p>`,
+      es: `<p>Comenzó como un juego básico de <b>piedra, papel o tijera en Python</b>, y evolucionó a una <b>app en React</b> sobre <b>ventajas de tipos Pokémon</b>. El jugador compite contra la CPU, con seguimiento de puntuación.</p>
+       <p>Fue mi <b>primera app web</b>, y un gran paso para aprender <b>React</b> y <b>diseño de interfaces</b>.</p>`,
+      ca: `<p>Va començar com un joc senzill de <b>pedra, paper o tisora en Python</b>, i va evolucionar a una <b>aplicació en React</b> sobre <b>avantatges de tipus Pokémon</b>. El jugador s'enfronta a la CPU amb puntuació acumulada.</p>
+       <p>Va ser la meva <b>primera app web</b> i un gran pas per aprendre <b>React</b> i <b>disseny de UI</b>.</p>`
+    }
+
+  },
+  {
+    id: "auca",
+    title: {
+      en: "Auca",
+      es: "Auca",
+      ca: "Auca",
+    },
+    tags: ["Python", "DeepAI API"],
+    links: [
+      { name: "info-circle", url: "https://devpost.com/software/auca" },
+    ],
+    about: {
+      en: `<p><b>Auca</b> was built for <b>Technica 2022</b> and uses <b>AI-generated art</b> to create <em>visual storytelling</em>. Inspired by traditional Catalan <b>aucas</b>, it replaces speech bubbles with <b>narrative text</b>.</p>
+       <p>We used the <b>DeepAI API</b> to render scenes from user prompts.</p>`,
+      es: `<p><b>Auca</b> se creó para la <b>hackathon Technica 2022</b> y utiliza <b>arte generado por IA</b> para contar <em>historias visuales</em>. Se inspira en las <b>aucas catalanas</b> usando texto narrativo en vez de viñetas.</p>
+       <p>Utilizamos la <b>API de DeepAI</b> para generar las imágenes a partir de entradas del usuario.</p>`,
+      ca: `<p><b>Auca</b> va ser creat per a la <b>hackathon Technica 2022</b> i utilitza <b>imatges generades amb IA</b> per explicar <em>històries visuals</em>. Inspirat en les <b>aucas catalanes</b>, fa servir text narratiu en lloc de bafarades.</p>
+       <p>Vam utilitzar l’<b>API de DeepAI</b> per generar escenes a partir de frases de l’usuari.</p>`
+    }
+
+  },
+  {
+    id: "percy",
+    title: {
+      en: "Percy the Dog",
+      es: "Percy el Perro",
+      ca: "Percy el Gos",
+    },
+    tags: ["HTML", "CSS"],
+    links: [
+      { name: "web", url: "https://rucev.github.io/Percy-the-Dog" },
+      { name: "github", url: "https://github.com/rucev/Percy-the-Dog" },
+    ],
+    about: {
+      en: `<p><b>Percy the Dog</b> is a <b>static responsive site</b> created to practice <b>mobile-first design</b>. It features a <b>navbar</b>, animated <b>skill bars</b>, and a <b>contact form</b>.</p>
+       <p>Built over a few days, it helped me get comfortable with <b>HTML</b>, <b>CSS</b>, and responsive styling.</p>`,
+      es: `<p><b>Percy the Dog</b> es una <b>página web estática y responsive</b> hecha para practicar <b>diseño mobile-first</b>. Tiene <b>barra de navegación</b>, <b>barras de habilidad animadas</b> y un <b>formulario de contacto</b>.</p>
+       <p>Hecha en pocos días, me ayudó a afianzar <b>HTML</b>, <b>CSS</b> y diseño adaptable.</p>`,
+      ca: `<p><b>Percy the Dog</b> és un <b>lloc web estàtic i responsive</b> creat per practicar <b>disseny mobile-first</b>. Inclou una <b>barra de navegació</b>, <b>barres d’habilitat animades</b> i un <b>formulari de contacte</b>.</p>
+       <p>Fet en pocs dies, em va servir per consolidar <b>HTML</b>, <b>CSS</b> i disseny responsive.</p>`
+    }
+  },
+];

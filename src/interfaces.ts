@@ -9,4 +9,20 @@ export interface ExperienceItem {
   content: string;
 }
 
+export type Project = {
+  id: string;
+  title: {
+    en: string;
+    es: string;
+    ca: string;
+  };
+  tags: string[];
+  links: { name?: string; web?: string; github?: string; url?: string; info?: string }[];
+  about: {
+    en: string;
+    es: string;
+    ca: string;
+  };
+};
+
 export type Experience = ExperienceItem[];

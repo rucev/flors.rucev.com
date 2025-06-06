@@ -1,4 +1,4 @@
-import type { Topic } from "../interfaces";
+import type { Project, Topic } from "../interfaces";
 import ca from "./ca";
 import en from "./en";
 import es from "./es";
@@ -68,6 +68,14 @@ export const getFormTagPlaceholder = (topic: Topic): keyof Locale => {
     case 'bug': return 'formMessagePlaceholderBug';
     case 'privacy': return 'formMessagePlaceholderPrivacy';
   }
+}
+
+export const getTitleByLang = (project: Project, lang: 'es' | 'en' | 'ca'): string => {
+  return project.title[lang];
+}
+
+export const getAboutByLang = (project: Project, lang: 'es' | 'en' | 'ca'): string => {
+  return project.about[lang];
 }
 
 export default {
