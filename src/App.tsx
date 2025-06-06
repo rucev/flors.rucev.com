@@ -52,7 +52,7 @@ const App = () => {
             {view === 'skills' && <Skills lang={lang} />}
             {view === 'exp' && <Exp lang={lang} />}
             {view === 'projects' && <Projects lang={lang} />}
-            {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} />}
+            {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} locale={locale} />}
           </div>
         </div>
         <div ref={footerRef}>

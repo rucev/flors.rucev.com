@@ -1,4 +1,4 @@
-import { SKILLS_DETAILS, SKILLS_TITLES } from "../locales"
+import { SKILLS_DETAILS, SKILLS_TITLES } from "../constants/LOCALES"
 import { BACKEND_BADGES, DEVOPS_BADGES, FRONTEND_BADGES, LIBRARY_BADGES } from "../constants/BADGES"
 
 const Skills = ({ lang }: { lang: string }) => {

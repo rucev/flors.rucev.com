@@ -1,14 +1,16 @@
 import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useState } from 'react';
+import { getFormTagKey, getFormTagPlaceholder, type Locale } from '../locales';
+import type { Topic } from '../interfaces';
 
 
 
-const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitted: Function, setErrorOnSubmit: Function }) => {
+const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessageSubmitted: Function, setErrorOnSubmit: Function, locale: Locale }) => {
   const [isNameValid, setNameValid] = useState<Boolean | null>(null)
   const [isEmailValid, setEmailValid] = useState<Boolean | null>(null)
   const [isMessageValid, setMessageValid] = useState<Boolean | null>(null)
-  const [topicsSelected, setTopicsSelected] = useState(['other'])
-  const topicsAvailable = ['partnership', 'work', 'content', 'feedback', 'bug', 'privacy', 'other']
+  const [topicsSelected, setTopicsSelected] = useState<Topic[]>(['other'])
+  const topicsAvailable: Topic[] = ['partnership', 'work', 'feedback', 'bug', 'privacy', 'other']
   const [isTermsAccepted, setTermsAccepted] = useState<Boolean | null>(null)
   const [isTopicRelevant, setIsTopicRelevant] = useState<Boolean>(true)
 
@@ -84,7 +86,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
     setIsTopicRelevant(false)
   }
 
-  const handleTopicClick = (topic: string) => {
+  const handleTopicClick = (topic: Topic) => {
     const _topicsSelected = [...topicsSelected]
     if (topicsSelected.includes(topic) && topicsSelected.length > 1) {
       _topicsSelected.splice(_topicsSelected.indexOf(topic), 1)
@@ -95,23 +97,24 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
 
   return (
     <div className="w-full md:pt-10">
-      <p className="px-2 ml-2 font-semibold">
-        {`topics`}
+      <p className="px-2 text-accent text-lg font-semibold">
+        {locale.formTopicsLabel}
       </p>
       <div className="pt-1 pb-5 w-full pl-0.5 flex flex-row gap-1 flex-wrap">
         {
           (topicsAvailable).map((topic, index) => {
+            const key = getFormTagKey(topic)
             return (
               <button
                 key={index}
                 type="button"
-                aria-label={``}
+                aria-label={`${locale.ariaLabelTag}${locale[key]}`}
                 className={
                   `cursor-pointer badge badge-secondary hover:badge-soft ${!topicsSelected.includes(topic) && 'badge-outline'}`
                 }
                 onClick={() => handleTopicClick(topic)}
               >
-                {topic}
+                {locale[key]}
               </button>
             )
           })
@@ -136,14 +139,14 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
         <div className="w-full flex flex-col md:flex-row md:justify-between md:gap-5">
           <div className="w-full flex flex-col">
             <label htmlFor="name" className="label">
-              text
+              {locale.formNameLabel}
             </label>
             <input
               id="name"
               type="text"
               name="name"
               className={`w-full input ${isNameValid === false ? 'input-error' : 'input-neutral'}`}
-              placeholder={`name.placeholder`}
+              placeholder={locale.formNamePlaceholder}
               onChange={(event) => handleNameChange(event)}
             />
             <div className="text-start pb-3">
@@ -152,7 +155,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
                   isNameValid === false ?
                     <span>
                       <i className="bi bi-exclamation-triangle pr-2" />
-                      {`name`}
+                      {locale.formNameError}
                     </span> :
                     <span><i className="bi bi-square text-base-300"></i></span>
                 }
@@ -166,14 +169,14 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
           </div>
           <div className="w-full flex flex-col">
             <label htmlFor="email" className="label">
-              {`email`}
+              {locale.formEmailLabel}
             </label>
             <input
               id="email"
               type="email"
               name="email"
               className={`w-full input ${isEmailValid === false ? 'input-error' : 'input-neutral'}`}
-              placeholder={'form-email-placeholder'}
+              placeholder={locale.formEmailPlaceholder}
               onChange={(event) => handleEmailChange(event)}
             />
             <div className="text-start pb-3">
@@ -182,7 +185,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
                   isEmailValid === false ?
                     <span>
                       <i className="bi bi-exclamation-triangle pr-2" />
-                      {'form-email-error'}
+                      {locale.formEmailError}
                     </span> :
                     <span><i className="bi bi-square text-base-300"></i></span>
                 }
@@ -196,7 +199,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
           </div>
         </div>
         <label htmlFor="message" className="label">
-          {'form-message-label'}
+          {locale.formMessageLabel}
         </label>
         <div className="w-full">
           <textarea
@@ -205,7 +208,8 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
             rows={4}
             className={`w-full textarea ${isMessageValid === false ? 'textarea-error' : 'textarea-neutral'}`}
             placeholder={(topicsSelected).map((topic) => {
-              const placeholderText = `form-message-placeholder-${topic}`;
+              const key = getFormTagPlaceholder(topic)
+              const placeholderText = locale[key]
               return placeholderText.startsWith(',') ? placeholderText.substring(1) : placeholderText;
             }).join('\n')}
             onChange={(event) => handleMessageChange(event)}
@@ -216,7 +220,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
                 isMessageValid === false ?
                   <span>
                     <i className="bi bi-exclamation-triangle pr-2" />
-                    {'form-message-error'}
+                    {locale.formMessageError}
                   </span> :
                   <span><i className="bi bi-square text-base-300"></i></span>
               }
@@ -232,16 +236,16 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit }: { setMessageSubmitte
           <div className={`${isTermsAccepted === false ? 'text-error' : 'text-content'} flex flex-row items-center`}>
             <input checked={!!isTermsAccepted} id="checkbox" type="checkbox" className={`checkbox checkbox-xs ${isTermsAccepted === false ? 'checkbox-error' : 'checkbox-neutral'}`} onChange={() => setTermsAccepted(!isTermsAccepted)} />
             <label htmlFor="checkbox" className="label pl-2 pt-1">
-              {'form-agree'}
+              {locale.formAgree}
             </label>
-            <a aria-label={'aria-label-open-terms'} onClick={() => { console.log('click'); (document.getElementById('terms_modal') as HTMLDialogElement | null)?.showModal() }} target="_blank" className="underline hover:text-th-p">{'form-privacy'}</a>.
+            <a aria-label={locale.ariaLabelOpenTerms} onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement | null)?.showModal()} target="_blank" className="link link-primary pt-1 pl-2 hover:text-th-p">{locale.formPrivacy}</a>.
             {
               (isTermsAccepted === false) &&
               <i className="pt-1.5 text-sm pl-2 bi bi-exclamation-triangle pr-2" />
             }
           </div>
-          <button className={`btn btn-outline  ${state.submitting ? `btn-disabled` : `btn-success`} flex flex-row items-center`} type="submit" disabled={state.submitting} aria-label={'aria-label-send'}>
-            {'form-button'}
+          <button className={`btn btn-outline  ${state.submitting ? `btn-disabled` : `btn-success`} flex flex-row items-center`} type="submit" disabled={state.submitting} aria-label={locale.ariaLabelSend}>
+            {locale.formButton}
             <i className={`text-lg pl-2 pt-1 ${state.submitting ? `bi bi-envelope-arrow-up-fill` : `bi-envelope-fill`}`} />
           </button>
         </div>
