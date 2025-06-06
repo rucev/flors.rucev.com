@@ -41,7 +41,14 @@ export interface Locale {
   ariaLabelOpenTerms: string;
 }
 
-export const LOCALES = [
+type validLocales = 'es' | 'en' | 'ca'
+
+interface LocaleItem {
+  locale: validLocales,
+  tag: string
+}
+
+export const LOCALES: LocaleItem[] = [
   { locale: 'es', tag: 'Español' },
   { locale: 'ca', tag: 'Català' },
   { locale: 'en', tag: 'English' }]

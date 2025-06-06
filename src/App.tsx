@@ -13,7 +13,7 @@ import ErrorToast from "./components/ErrorToat"
 import TermsModal from "./components/TermsModal"
 
 const App = () => {
-  const [lang, setLang] = useState<string>('en')
+  const [lang, setLang] = useState<'es' | 'ca' | 'en'>('en')
   const [locale, setLocale] = useState<Locale>(locales.en)
   const [view, setView] = useState<View>('landing')
   const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false)
@@ -68,10 +68,10 @@ const App = () => {
         </ul>
       }
       {
-        isMessageSubmited && <SubmitToast lang={lang} onClose={() => setIsMessageSubmited(false)} />
+        isMessageSubmited && <SubmitToast onClose={() => setIsMessageSubmited(false)} />
       }
       {
-        hasErrorHappen && <ErrorToast lang={lang} onClose={() => setHasErrorHappen(false)} />
+        hasErrorHappen && <ErrorToast onClose={() => setHasErrorHappen(false)} />
       }
       {
         view === 'landing' &&

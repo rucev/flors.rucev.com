@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 
-const ErrorToast = ({ lang, onClose }: { lang: string, onClose: Function }) => {
+//TODO: translate toasts!
+
+const ErrorToast = ({ onClose }: { onClose: Function }) => {
   useEffect(() => {
     setTimeout(() => {
       onClose()

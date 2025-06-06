@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const SubmitToast = ({ lang, onClose }: { lang: string, onClose: Function }) => {
+const SubmitToast = ({ onClose }: { onClose: Function }) => {
   useEffect(() => {
     setTimeout(() => {
       onClose()
