@@ -244,7 +244,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
               <i className="pt-1.5 text-sm pl-2 bi bi-exclamation-triangle pr-2" />
             }
           </div>
-          <button className={`btn btn-outline  ${state.submitting ? `btn-disabled` : `btn-success`} flex flex-row items-center`} type="submit" disabled={state.submitting} aria-label={locale.ariaLabelSend}>
+          <button className={`btn btn-outline  ${state.submitting ? `btn-disabled` : `btn-accent`} flex flex-row items-center`} type="submit" disabled={state.submitting} aria-label={locale.ariaLabelSend}>
             {locale.formButton}
             <i className={`text-lg pl-2 pt-1 ${state.submitting ? `bi bi-envelope-arrow-up-fill` : `bi-envelope-fill`}`} />
           </button>

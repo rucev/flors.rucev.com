@@ -12,8 +12,8 @@ const Exp = ({ lang }: { lang: string }) => {
 
 
   return (
-    <section className="relative w-full max-h-screen lg:w-4/5 pt-3 pl-4">
-      <div className="absolute left-5.75 top-6 bottom-6 w-0.5 rounded-2xl bg-secondary"></div>
+    <section className="relative w-full h-fit lg:w-4/5 pt-3 pl-4">
+      <div className="absolute h-full left-5.75 top-6 bottom-6 w-0.5 rounded-2xl bg-secondary"></div>
       {exp && exp.map((work, index) => (
         <div key={index} className="relative pl-3 mb-6">
           <div className="absolute left-0 top-3 w-4 h-4 bg-secondary rounded-full border-2 border-base-100 z-10"></div>
@@ -23,8 +23,8 @@ const Exp = ({ lang }: { lang: string }) => {
               <h3 className="text-2xl font-bold">{work.role}</h3>
               <time className="text-lg">{work.years}</time>
             </div>
-            <div className="collapse-content w-full flex flex-col justify-start -mt-9 gap-1">
-              <span className="text-lg font-bold self-end pr-10 -mt-2">{work.company}</span>
+            <div className="collapse-content w-full flex flex-col justify-start lg:-mt-9 gap-1">
+              <span className="text-lg font-bold self-end pr-10 lg:-mt-2">{work.company}</span>
               <div className="text-sm text-justify" dangerouslySetInnerHTML={{ __html: work.content }} />
             </div>
 
