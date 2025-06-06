@@ -1,6 +1,3 @@
-import { SKILLS_DETAILS, SKILLS_TITLES } from "../locales"
-import { BACKEND_BADGES, DEVOPS_BADGES, FRONTEND_BADGES, LIBRARY_BADGES } from "../constants/BADGES"
-
 const Exp = ({ lang }: { lang: string }) => {
   const items = [
     { years: "2024–2025", role: 'Test', company: 'the comp', content: "Lorem ipsum dolor sit amet..." },

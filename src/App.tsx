@@ -7,12 +7,16 @@ import type { View } from "./interfaces"
 import Skills from "./components/Skills"
 import Exp from "./components/Exp"
 import Projects from "./components/Projects"
+import Contact from "./components/Contact"
 
 const App = () => {
   const [lang, setLang] = useState<string>('en')
   const [locale, setLocale] = useState<Locale>(locales.en)
   const [view, setView] = useState<View>('landing')
   const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false)
+  const [isMessageSubmited, setIsMessageSubmited] = useState(false)
+  const [hasErrorHappen, setHasErrorHappen] = useState(false)
+  const [displayTermsModal, setDisplayTermsModal] = useState(false)
   const menuRef = useRef<HTMLUListElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
 
@@ -46,7 +50,7 @@ const App = () => {
             {view === 'skills' && <Skills lang={lang} />}
             {view === 'exp' && <Exp lang={lang} />}
             {view === 'projects' && <Projects lang={lang} />}
-            {view === 'contact' && <h1>contact</h1>}
+            {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} toTerms={setDisplayTermsModal} setMessageSubmitted={setIsMessageSubmited} />}
           </div>
         </div>
         <div ref={footerRef}>

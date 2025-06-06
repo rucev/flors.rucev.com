@@ -34,8 +34,6 @@
   }
 }
 
-@plugin "@tailwindcss/typography";
-
 @plugin "daisyui" {
   themes: dracula --default
     /*
