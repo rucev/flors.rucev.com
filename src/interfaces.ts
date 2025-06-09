@@ -26,3 +26,5 @@ export type Project = {
 };
 
 export type Experience = ExperienceItem[];
+
+export type WindowsType = 'sm/portrait' | 'sm/landscape' | 'md/portrait' | 'md/landscape' | 'lg/portrait' | 'lg/landscape' | '?' | 'not'

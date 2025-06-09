@@ -21,10 +21,10 @@ const Exp = ({ lang }: { lang: string }) => {
             <input type="radio" name="timeline-accordion" />
             <div className="collapse-title flex flex-col -mt-2">
               <h3 className="text-2xl font-bold">{work.role}</h3>
+              <span className="text-lg font-light italic">{work.company}</span>
               <time className="text-lg">{work.years}</time>
             </div>
-            <div className="collapse-content w-full flex flex-col justify-start lg:-mt-9 gap-1">
-              <span className="text-lg font-bold self-end pr-10 lg:-mt-2">{work.company}</span>
+            <div className="collapse-content w-full flex flex-col justify-start gap-1">
               <div className="text-sm text-justify" dangerouslySetInnerHTML={{ __html: work.content }} />
             </div>
 

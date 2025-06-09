@@ -12,7 +12,10 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
     const container = containerRef.current
     if (container) {
       const child = container.children[index] as HTMLElement
-      child.scrollIntoView({ behavior: "smooth", inline: "center" })
+      container.scrollTo({
+        left: child.offsetLeft,
+        behavior: 'smooth',
+      })
     }
   }
 
@@ -23,11 +26,19 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
   }
 
   return (
-    <section className="w-full max-h-screen lg:w-4/5 gap-3 flex flex-col-reverse md:flex-col">
-      <div
-        ref={containerRef}
-        className="carousel flex overflow-x-auto scroll-snap-x scroll-smooth gap-4 h-full"
-      >
+    <section className="w-11/12 max-h-screen lg:w-4/5 gap-3 flex flex-col">
+      <div className="flex justify-center gap-2 pt-5">
+        {PROJECTS.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`pt-1 btn btn-xs ${index === active ? "btn-accent" : "btn-secondary hover:btn-accent"}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+      <div ref={containerRef} className="carousel flex overflow-x-auto scroll-smooth gap-4">
         {PROJECTS.map((project, index) => {
           const title = getTitleByLang(project, lang)
           const about = getAboutByLang(project, lang)
@@ -35,8 +46,9 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
             <article
               key={index}
               className="carousel-item flex-shrink-0 w-full snap-center relative h-full"
+              tabIndex={0}
             >
-              <div className="flex flex-col gap-4 w-full p-4 h-full justify-between rounded-lg shadow">
+              <div className="flex flex-col gap-4 w-full pt-4 h-full justify-between rounded-lg shadow">
                 <h3 className="text-3xl font-bold w-1/2 pr-1 text-secondary">{title}</h3>
                 <div className="flex flex-col md:flex-row gap-7 h-full">
                   <div className="flex flex-col gap-7 pt-1 w-full">
@@ -69,19 +81,8 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
               </div>
             </article>
           )
-        })}
-      </div>
 
-      <div className="flex justify-center gap-2 pt-5">
-        {PROJECTS.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`pt-1 btn btn-xs ${index === active ? "btn-accent" : "btn-secondary hover:btn-accent"}`}
-          >
-            {index + 1}
-          </button>
-        ))}
+        })}
       </div>
     </section>
   );

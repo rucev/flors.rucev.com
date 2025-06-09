@@ -1,9 +1,9 @@
+import type { WindowsType } from "../interfaces"
 
+const Footer = ({ lang, setIsMenuOpen, isMenuOpen, windowsType }: { lang: string, isMenuOpen: Boolean, setIsMenuOpen: Function, windowsType: WindowsType }) => {
 
-const Footer = ({ lang, setIsMenuOpen, isMenuOpen }: { lang: string, isMenuOpen: Boolean, setIsMenuOpen: Function }) => {
-
-  return <div className="fixed bottom-0 w-screen md:relative max-w-full flex flex-col md:mt-8" >
-    <footer className="text-sm md:text-lg w-full h-10 bg-neutral flex flex-row items-center justify-between px-5">
+  return <div className="fixed bottom-0 w-full max-w-screen flex flex-col" >
+    <footer className={`text-sm md:text-lg w-full h-10 bg-neutral flex ${windowsType === 'sm/portrait' ? 'flex-col' : 'flex-row'} items-center justify-between px-5`}>
       <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:cursor-pointer hover:text-accent flex flex-row gap-2">
         <i className="bi bi-translate"></i>
         {lang === 'es' ? 'Español' : lang === 'ca' ? 'Català' : 'English'}

@@ -47,8 +47,9 @@
     */
 }
 
-
-
+body {
+  @apply bg-base-300 overflow-hidden max-w-screen
+}
 
 b {
   @apply font-bold text-primary

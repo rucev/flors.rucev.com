@@ -232,13 +232,13 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
             errors={state.errors}
           />
         </div>
-        <div className="flex flex-col gap-2 md:flex-row items-center md:justify-between">
-          <div className={`${isTermsAccepted === false ? 'text-error' : 'text-content'} flex flex-row items-center`}>
+        <div className="flex flex-col gap-7 md:flex-row items-center md:justify-between">
+          <div className={`${isTermsAccepted === false ? 'text-error' : 'text-content'} flex flex-row items-center flex-wrap`}>
             <input checked={!!isTermsAccepted} id="checkbox" type="checkbox" className={`checkbox checkbox-xs ${isTermsAccepted === false ? 'checkbox-error' : 'checkbox-neutral'}`} onChange={() => setTermsAccepted(!isTermsAccepted)} />
             <label htmlFor="checkbox" className="label pl-2 pt-1">
               {locale.formAgree}
             </label>
-            <a aria-label={locale.ariaLabelOpenTerms} onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement | null)?.showModal()} target="_blank" className="link link-primary pt-1 pl-2 hover:text-th-p">{locale.formPrivacy}</a>.
+            <a aria-label={locale.ariaLabelOpenTerms} onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement | null)?.showModal()} target="_blank" className="link link-primary pt-1 pl-2 hover:text-th-p min-w-[135px]">{locale.formPrivacy}</a>.
             {
               (isTermsAccepted === false) &&
               <i className="pt-1.5 text-sm pl-2 bi bi-exclamation-triangle pr-2" />
