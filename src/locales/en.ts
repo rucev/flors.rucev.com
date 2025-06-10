@@ -31,6 +31,7 @@ export default {
   formNameError: 'Please enter your name.',
   formEmailError: 'Please enter a valid email address.',
   formMessageError: 'Please provide a more detailed message.',
+  formTermsError: 'Please, read and agree with the terms of use and privacy policy.',
   ariaLabelTag: 'Choose ',
   ariaLabelSend: 'Send message',
   ariaLabelOpenTerms: 'Go to privacy policy'

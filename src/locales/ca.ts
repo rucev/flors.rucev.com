@@ -31,6 +31,7 @@ export default {
   formNameError: 'Si us plau, introdueix el teu nom.',
   formEmailError: 'Si us plau, introdueix un correu electrònic vàlid.',
   formMessageError: 'Si us plau, proporciona un missatge més detallat.',
+  formTermsError: 'Si us plau, revisa i accepta les condicions de privacitat.',
   ariaLabelTag: 'Elegir ',
   ariaLabelSend: 'Enviar missatge',
   ariaLabelOpenTerms: 'Anar a condicions de privacitat'

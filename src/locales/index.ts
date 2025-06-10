@@ -36,6 +36,7 @@ export interface Locale {
   formNameError: string;
   formEmailError: string;
   formMessageError: string;
+  formTermsError: string;
   ariaLabelTag: string;
   ariaLabelSend: string;
   ariaLabelOpenTerms: string;

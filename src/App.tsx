@@ -9,7 +9,7 @@ import Exp from "./components/Exp"
 import Projects from "./components/Projects"
 import Contact from "./components/Contact"
 import SubmitToast from "./components/SubmitToast"
-import ErrorToast from "./components/ErrorToat"
+import ErrorToast from "./components/ErrorToast"
 import TermsModal from "./components/TermsModal"
 import useWindowSize from "./hooks/useWindowSize"
 import SmallScreenMsg from "./components/SmallScreenMsg"
@@ -52,13 +52,13 @@ const App = () => {
             view === 'landing' &&
             <LandingBg windowsType={windowsType} />
           }
-          <main className="text-ellipsis text- z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10">
+          <main className="z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10">
             <div className="flex flex-col px-5 md:px-10 gap-1 max-w-11/12">
               <div className="flex flex-col w-full">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{locale.titleName}</h1>
                 <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{locale.role}</h2>
               </div>
-              <div className={`h-fti flex ${windowsType === 'sm/portrait' || windowsType === 'md/portrait' || windowsType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
+              <div className={`h-fit flex ${windowsType === 'sm/portrait' || windowsType === 'md/portrait' || windowsType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
                 <NavMenu locale={locale} view={view} setView={setView} windowsType={windowsType} />
                 {view === 'skills' && <Skills lang={lang} />}
                 {view === 'exp' && <Exp lang={lang} />}

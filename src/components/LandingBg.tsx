@@ -36,7 +36,7 @@ const LandingBg = ({ windowsType }: { windowsType: WindowsType }) => {
     {
       version === 'complete-h' && <div className="absolute z-0 right-3/12 top-0 w-3/5 h-[80vh]">
         <div className="absolute h-[80vh] w-3/5 z-0 top-20 right-0">
-          <img src="/my-face.jpeg" className="absolute h-80 rounded-xl left-6/12 top-20 z-30" />
+          <img src="/my-face.jpeg" alt="That's me!" className="absolute h-80 rounded-xl left-6/12 top-20 z-30" />
           <div className="animate-scale-2 absolute w-80 h-80 bg-accent rounded-full left-7/12 top-30 z-20"></div>
           <div className="animate-scale-1 absolute w-44 h-44 bg-secondary rounded-full left-5/12 top-10 z-10"></div>
           <div className="animate-scale-3 absolute w-96 h-96 bg-base-100 rounded-full left-7/12 top-3 z-0"></div>
