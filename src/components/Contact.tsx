@@ -162,28 +162,31 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
         <ValidationError prefix="Message" field="message" errors={state.errors} />
 
         <div className="flex flex-col gap-7 md:flex-row items-center md:justify-between mt-4">
-          <div className="form-control w-full flex flex-col gap-0.5 md:flex-row justify-center items-center">
-            <label htmlFor="checkbox" className="flex items-center gap-2">
-              <input
-                id="checkbox"
-                type="checkbox"
-                checked={!!isTermsAccepted}
-                onChange={() => setTermsAccepted(!isTermsAccepted)}
-                className={`checkbox checkbox-xs ${isTermsAccepted === false ? 'checkbox-error' : 'checkbox-neutral'}`}
-                aria-invalid={isTermsAccepted === false}
-                aria-describedby="terms-error"
-              />
-              <span>{t.formAgree}</span>
-            </label>
-            <a
-              aria-label={t.ariaLabelOpenTerms}
-              onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement)?.showModal()}
-              className="link link-primary pl-2 hover:text-th-p min-w-[135px]"
-            >
-              {t.formPrivacy}
-            </a>
+          <div className="form-control w-full flex flex-col gap-0.5 justify-start h-7">
+            <div className="form-control w-full flex flex-col md:flex-row gap-0.5 justify-start">
+              <label htmlFor="checkbox" className="flex items-center gap-2">
+                <input
+                  id="checkbox"
+                  type="checkbox"
+                  checked={!!isTermsAccepted}
+                  onChange={() => setTermsAccepted(!isTermsAccepted)}
+                  className={`checkbox checkbox-xs ${isTermsAccepted === false ? 'checkbox-error' : 'checkbox-neutral'}`}
+                  aria-invalid={isTermsAccepted === false}
+                  aria-describedby="terms-error"
+                />
+                <span>{t.formAgree}</span>
+              </label>
+              <a
+                aria-label={t.ariaLabelOpenTerms}
+                onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement)?.showModal()}
+                className="link link-primary pl-2 hover:text-th-p min-w-[135px]"
+              >
+                {t.formPrivacy}
+              </a>
+            </div>
+
             {isTermsAccepted === false && (
-              <p id="terms-error" role="alert" className="text-error text-sm mt-1">{t.formTermsError}</p>
+              <p id="terms-error" role="alert" className="text-error text-sm mt-1 h-5">{t.formTermsError}</p>
             )}
           </div>
 

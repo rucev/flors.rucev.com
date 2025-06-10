@@ -33,7 +33,7 @@ const NavMenu = ({ t, view, setView, windowsType, }: { t: LinksTranslations, vie
           onClick={() => handleClick(key)}
           aria-current={view === key ? "page" : undefined}
           className={`cursor-pointer relative inline-block group w-fit text-left focus:outline-none ${view === key ? "text-accent" : "hover:text-accent text-base-content"
-            } ${key === "contact" ? (isPortrait ? "pl-4" : "pt-2 lg:pt-7") : ""}`}
+            } ${key === "contact" ? (isPortrait ? "ml-4" : "pt-2 lg:pt-7") : ""}`}
         >
           {label}
           {view !== key && (

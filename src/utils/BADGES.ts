@@ -4,7 +4,6 @@ export const FRONTEND_BADGES = [
   { name: 'js', url: 'https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E' },
   { name: 'ts', url: 'https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white' },
   { name: 'react', url: 'https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB' },
-  { name: 'reactNative', url: 'https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB' },
   { name: 'expo', url: 'https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37' },
   { name: 'next', url: 'https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white' },
   { name: 'vue', url: 'https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D' },

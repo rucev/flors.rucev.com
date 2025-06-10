@@ -37,8 +37,6 @@ const App = () => {
       document.documentElement.lang = locale
       locale === 'es' ? setT(translations.es) : locale === 'ca' ? setT(translations.ca) : setT(translations.en)
     }
-
-
   }, [locale])
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const App = () => {
     return () => document.removeEventListener('click', handleClick)
   }, [])
 
-  if (!t) return
+  if (!t || !locale) return
 
   return (
     <>
@@ -64,7 +62,7 @@ const App = () => {
             <LandingBg windowsType={windowsType} />
           }
           <main className="z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10">
-            <div className="flex flex-col px-5 md:px-10 gap-1 max-w-11/12">
+            <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen">
               <div className="flex flex-col w-full">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{t.titleName}</h1>
                 <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{t.role}</h2>
