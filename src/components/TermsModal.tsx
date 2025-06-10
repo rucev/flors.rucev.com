@@ -1,7 +1,6 @@
-import { PRIVACY_TEXTS } from "../constants/LOCALES";
+import type { PrivacyTranslations } from "../locales";
 
-const TermsModal = ({ lang }: { lang: 'en' | 'es' | 'ca' }) => {
-  const text = PRIVACY_TEXTS[lang] || PRIVACY_TEXTS.en;
+const TermsModal = ({ t }: { t: PrivacyTranslations }) => {
 
   return (
     <dialog id="terms_modal" className="modal w-screen h-screen max-w-none max-h-none p-0">
@@ -9,9 +8,9 @@ const TermsModal = ({ lang }: { lang: 'en' | 'es' | 'ca' }) => {
         <form method="dialog">
           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
-        <h3 className="font-bold text-lg mb-4 text-primary">{text.title}</h3>
-        <p className="mb-4">{text.intro}</p>
-        {text.sections.map(({ heading, content }, index) => (
+        <h3 className="font-bold text-lg mb-4 text-primary">{t.title}</h3>
+        <p className="mb-4">{t.intro}</p>
+        {t.sections.map(({ heading, content }, index) => (
           <section key={index} className="mb-4">
             <h4 className="font-semibold text-accent">{heading}</h4>
             <p>{content}</p>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { WindowsType } from '../interfaces'
+import type { WindowsType } from '../utils/types'
 
 export default (): WindowsType => {
   const hasWindow: boolean = typeof window !== 'undefined'

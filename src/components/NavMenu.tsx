@@ -1,7 +1,7 @@
-import type { View, WindowsType } from "../interfaces";
-import type { Locale } from "../locales";
+import type { View, WindowsType } from "../utils/types";
+import type { LinksTranslations } from "../locales";
 
-const NavMenu = ({ locale, view, setView, windowsType, }: { locale: Locale, view: View, setView: Function, windowsType: WindowsType }) => {
+const NavMenu = ({ t, view, setView, windowsType, }: { t: LinksTranslations, view: View, setView: Function, windowsType: WindowsType }) => {
   const handleClick = (newView: View) => {
     if (newView !== view) setView(newView);
   };
@@ -12,10 +12,10 @@ const NavMenu = ({ locale, view, setView, windowsType, }: { locale: Locale, view
     windowsType === "lg/portrait";
 
   const navLinks: { key: View; label: string }[] = [
-    { key: "skills", label: locale.skillsLink },
-    { key: "exp", label: locale.expLink },
-    { key: "projects", label: locale.projectsLink },
-    { key: "contact", label: locale.contactLink },
+    { key: "skills", label: t.skillsLink },
+    { key: "exp", label: t.expLink },
+    { key: "projects", label: t.projectsLink },
+    { key: "contact", label: t.contactLink },
   ];
 
   return (
@@ -25,7 +25,7 @@ const NavMenu = ({ locale, view, setView, windowsType, }: { locale: Locale, view
         : "flex-col w-1/3 pt-3 lg:pt-20"
         }`}
       role="navigation"
-      aria-label={"Main Navigation" /*Add aria label to locale*/}
+      aria-label={t.menuLabel}
     >
       {navLinks.map(({ key, label }) => (
         <button

@@ -1,4 +1,4 @@
-import type { WindowsType } from "../interfaces"
+import type { WindowsType } from "../utils/types"
 
 const LandingBg = ({ windowsType }: { windowsType: WindowsType }) => {
   const version = windowsType === 'sm/landscape' ? 'min' : windowsType === 'sm/portrait' || windowsType === 'md/portrait' ? 'reduced' : windowsType === 'lg/portrait' ? 'complete-v' : 'complete-h'

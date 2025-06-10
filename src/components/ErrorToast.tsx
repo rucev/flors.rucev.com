@@ -1,8 +1,7 @@
 import { useEffect } from "react"
+import type { OtherTranslations } from "../locales"
 
-//TODO: translate toasts!
-
-const ErrorToast = ({ onClose }: { onClose: Function }) => {
+const ErrorToast = ({ onClose, t }: { onClose: Function, t: OtherTranslations }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose()
@@ -12,7 +11,7 @@ const ErrorToast = ({ onClose }: { onClose: Function }) => {
 
   return <div className="toast toast-end toast-middle" role="alert" aria-live="assertive">
     <div className="alert alert-error">
-      <span>Sorry, something went wrong!</span>
+      <span>{t.errorMessage}</span>
     </div>
   </div>
 

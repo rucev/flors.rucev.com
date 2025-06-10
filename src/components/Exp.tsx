@@ -1,14 +1,6 @@
-import { useEffect, useState } from "react";
-import { EXPERIENCE } from "../constants/LOCALES";
-import type { Experience } from "../interfaces";
+import type { ExperienceTranslations } from "../locales";
 
-const Exp = ({ lang }: { lang: string }) => {
-  const [exp, setExp] = useState<Experience | null>(null)
-
-  useEffect(() => {
-    const experience: Experience = lang === 'es' ? EXPERIENCE.es : lang === 'ca' ? EXPERIENCE.ca : EXPERIENCE.en
-    setExp(experience)
-  }, [lang])
+const Exp = ({ t }: { t: ExperienceTranslations }) => {
 
 
   return (
@@ -17,7 +9,7 @@ const Exp = ({ lang }: { lang: string }) => {
         Work Experience Timeline
       </h2>
       <div className="absolute h-full left-5.75 top-6 bottom-6 w-0.5 rounded-2xl bg-secondary"></div>
-      {exp && exp.map((work, index) => {
+      {t.experience.map((work, index) => {
         const panelId = `exp-panel-${index}`
         const headingId = `exp-header-${index}`
 
@@ -33,7 +25,7 @@ const Exp = ({ lang }: { lang: string }) => {
             </div>
             <div className="collapse-content w-full flex flex-col justify-start gap-1" role="region"
               id={panelId} aria-labelledby={headingId}>
-              <div className="text-sm text-justify" dangerouslySetInnerHTML={{ __html: work.content }} />
+              <div className="text-sm text-justify" dangerouslySetInnerHTML={{ __html: work.contentInner }} />
             </div>
 
           </div>

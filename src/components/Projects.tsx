@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
-import { PROJECTS } from "../constants/LOCALES";
-import { getAboutByLang, getTitleByLang } from "../locales";
+import { useRef, useState } from "react"
+import { type ProjectsTranslations } from "../locales"
 
-export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
-  const [active, setActive] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+const Projects = ({ t }: { t: ProjectsTranslations }) => {
+  const [active, setActive] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const projects = t.projects
 
   const goToSlide = (index: number) => {
     setActive(index);
-    const container = containerRef.current;
+    const container = containerRef.current
     if (container) {
-      const child = container.children[index] as HTMLElement;
+      const child = container.children[index] as HTMLElement
       container.scrollTo({
         left: child.offsetLeft,
         behavior: "smooth",
@@ -19,9 +19,9 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
   };
 
   const handleArrowClick = (index: number) => {
-    if (index < 0) goToSlide(PROJECTS.length - 1);
-    else if (index >= PROJECTS.length) goToSlide(0);
-    else goToSlide(index);
+    if (index < 0) goToSlide(projects.length - 1)
+    else if (index >= projects.length) goToSlide(0)
+    else goToSlide(index)
   };
 
   return (
@@ -30,7 +30,7 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
       aria-label="Project carousel"
     >
       <div className="flex justify-center gap-2 pt-5">
-        {PROJECTS.map((_, index) => (
+        {projects.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
@@ -51,9 +51,7 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
         aria-roledescription="carousel"
         aria-label="Project gallery"
       >
-        {PROJECTS.map((project, index) => {
-          const title = getTitleByLang(project, lang);
-          const about = getAboutByLang(project, lang);
+        {projects.map((project, index) => {
 
           return (
             <article
@@ -61,12 +59,12 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
               className="carousel-item flex-shrink-0 w-full snap-center relative h-full"
               role="group"
               aria-roledescription="slide"
-              aria-label={`${index + 1} of ${PROJECTS.length}: ${title}`}
+              aria-label={`${index + 1} of ${projects.length}: ${project.title}`}
               tabIndex={0}
             >
               <div className="flex flex-col gap-4 w-full pt-4 h-full justify-between rounded-lg shadow">
                 <h3 className="text-3xl font-bold w-1/2 pr-1 text-secondary">
-                  {title}
+                  {project.title}
                 </h3>
                 <div className="flex flex-col md:flex-row gap-7 h-full">
                   <div className="flex flex-col gap-7 pt-1 w-full">
@@ -103,13 +101,13 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
                     </ul>
                     <div
                       className="flex flex-col gap-1 w-full text-justify"
-                      dangerouslySetInnerHTML={{ __html: about }}
+                      dangerouslySetInnerHTML={{ __html: project.about }}
                       aria-label="Project description"
                     />
                   </div>
                   <img
                     src={`/${project.id}.svg`}
-                    alt={`${title} illustration`}
+                    alt={`${project.title} illustration`}
                     className="w-full md:w-[400px] rounded h-fit md:h-[400px]"
                   />
                 </div>
@@ -137,3 +135,5 @@ export default function Projects({ lang }: { lang: "es" | "en" | "ca" }) {
     </section>
   );
 }
+
+export default Projects

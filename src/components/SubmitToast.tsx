@@ -1,6 +1,7 @@
 import { useEffect } from "react"
+import type { OtherTranslations } from "../locales";
 
-const SubmitToast = ({ onClose }: { onClose: Function }) => {
+const SubmitToast = ({ onClose, t }: { onClose: Function, t: OtherTranslations }) => {
   useEffect(() => {
     setTimeout(() => {
       onClose()
@@ -9,7 +10,7 @@ const SubmitToast = ({ onClose }: { onClose: Function }) => {
 
   return <div className="toast toast-end toast-middle">
     <div className="alert alert-success">
-      <span>Message sent successfully.</span>
+      <span>{t.submitMessage}</span>
     </div>
   </div>
 

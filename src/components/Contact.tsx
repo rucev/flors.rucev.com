@@ -1,9 +1,9 @@
 import { useForm, ValidationError } from '@formspree/react';
 import { useEffect, useState } from 'react';
-import { getFormTagKey, getFormTagPlaceholder, type Locale } from '../locales';
-import type { Topic } from '../interfaces';
+import { getFormTagKey, getFormTagPlaceholder, type ContactTranslations } from '../locales';
+import type { Topic } from '../utils/types';
 
-const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessageSubmitted: Function, setErrorOnSubmit: Function, locale: Locale }) => {
+const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmitted: Function, setErrorOnSubmit: Function, t: ContactTranslations }) => {
   const [isNameValid, setNameValid] = useState<boolean | null>(null)
   const [isEmailValid, setEmailValid] = useState<boolean | null>(null)
   const [isMessageValid, setMessageValid] = useState<boolean | null>(null)
@@ -79,9 +79,9 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
 
   return (
     <div className="w-full md:pt-10 h-fit">
-      <h2 className="sr-only">{locale.contactLink}</h2>
+      <h2 className="sr-only">{t.title}</h2>
       <fieldset>
-        <legend className="px-2 text-accent text-lg font-semibold">{locale.formTopicsLabel}</legend>
+        <legend className="px-2 text-accent text-lg font-semibold">{t.formTopicsLabel}</legend>
         <div className="pt-1 pb-5 w-full pl-0.5 flex flex-row gap-1 flex-wrap">
           {topicsAvailable.map((topic, index) => {
             const key = getFormTagKey(topic)
@@ -90,59 +90,58 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
                 key={index}
                 type="button"
                 aria-pressed={topicsSelected.includes(topic)}
-                aria-label={`${locale.ariaLabelTag}${locale[key]}`}
+                aria-label={`${t.ariaLabelTag}${t[key]}`}
                 className={`cursor-pointer badge badge-secondary hover:badge-soft ${!topicsSelected.includes(topic) && 'badge-outline'}`}
                 onClick={() => handleTopicClick(topic)}
               >
-                {locale[key]}
+                {t[key]}
               </button>
             )
           })}
         </div>
       </fieldset>
-
       <form onSubmit={handleFormSubmit} id="form" noValidate>
         <input type="hidden" id="relevantTopic" onChange={handleRelevantChange} />
         <input type="hidden" name="topics" value={topicsSelected.toString()} readOnly />
         <div className="w-full flex flex-col md:flex-row md:justify-between md:gap-5">
           <div className="w-full flex flex-col">
-            <label htmlFor="name" className="label">{locale.formNameLabel}</label>
+            <label htmlFor="name" className="label">{t.formNameLabel}</label>
             <input
               id="name"
               type="text"
               name="name"
               className={`w-full input ${isNameValid === false ? 'input-error' : 'input-neutral'}`}
-              placeholder={locale.formNamePlaceholder}
+              placeholder={t.formNamePlaceholder}
               onChange={handleNameChange}
               aria-invalid={isNameValid === false}
               aria-describedby="name-error"
             />
             <p id="name-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-7">
-              {isNameValid === false ? <>{locale.formNameError}</> : null}
+              {isNameValid === false ? <>{t.formNameError}</> : null}
             </p>
             <ValidationError prefix="Name" field="name" errors={state.errors} />
           </div>
 
           <div className="w-full flex flex-col">
-            <label htmlFor="email" className="label">{locale.formEmailLabel}</label>
+            <label htmlFor="email" className="label">{t.formEmailLabel}</label>
             <input
               id="email"
               type="email"
               name="email"
               className={`w-full input ${isEmailValid === false ? 'input-error' : 'input-neutral'}`}
-              placeholder={locale.formEmailPlaceholder}
+              placeholder={t.formEmailPlaceholder}
               onChange={handleEmailChange}
               aria-invalid={isEmailValid === false}
               aria-describedby="email-error"
             />
             <p id="email-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-7">
-              {isEmailValid === false ? <>{locale.formEmailError}</> : null}
+              {isEmailValid === false ? <>{t.formEmailError}</> : null}
             </p>
             <ValidationError prefix="Email" field="email" errors={state.errors} />
           </div>
         </div>
 
-        <label htmlFor="message" className="label">{locale.formMessageLabel}</label>
+        <label htmlFor="message" className="label">{t.formMessageLabel}</label>
         <textarea
           id="message"
           name="message"
@@ -150,7 +149,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
           className={`w-full textarea ${isMessageValid === false ? 'textarea-error' : 'textarea-neutral'}`}
           placeholder={(topicsSelected).map(topic => {
             const key = getFormTagPlaceholder(topic)
-            const placeholderText = locale[key]
+            const placeholderText = t[key]
             return placeholderText.startsWith(',') ? placeholderText.substring(1) : placeholderText
           }).join('\n')}
           onChange={handleMessageChange}
@@ -158,7 +157,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
           aria-describedby="message-error"
         />
         <p id="message-error" role="alert" className={`text-error font-semibold text-sm py-1 pl-2 h-7`}>
-          {isMessageValid === false ? <>{locale.formMessageError}</> : null}
+          {isMessageValid === false ? <>{t.formMessageError}</> : null}
         </p>
         <ValidationError prefix="Message" field="message" errors={state.errors} />
 
@@ -174,17 +173,17 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
                 aria-invalid={isTermsAccepted === false}
                 aria-describedby="terms-error"
               />
-              <span>{locale.formAgree}</span>
+              <span>{t.formAgree}</span>
             </label>
             <a
-              aria-label={locale.ariaLabelOpenTerms}
+              aria-label={t.ariaLabelOpenTerms}
               onClick={() => (document.getElementById('terms_modal') as HTMLDialogElement)?.showModal()}
               className="link link-primary pl-2 hover:text-th-p min-w-[135px]"
             >
-              {locale.formPrivacy}
+              {t.formPrivacy}
             </a>
             {isTermsAccepted === false && (
-              <p id="terms-error" role="alert" className="text-error text-sm mt-1">{locale.formTermsError}</p>
+              <p id="terms-error" role="alert" className="text-error text-sm mt-1">{t.formTermsError}</p>
             )}
           </div>
 
@@ -192,9 +191,9 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, locale }: { setMessage
             type="submit"
             className={`btn btn-outline ${state.submitting ? 'btn-disabled' : 'btn-accent'} flex flex-row items-center`}
             disabled={state.submitting}
-            aria-label={locale.ariaLabelSend}
+            aria-label={t.ariaLabelSend}
           >
-            {locale.formButton}
+            {t.formButton}
             <i className={`text-lg pl-2 pt-1 ${state.submitting ? 'bi bi-envelope-arrow-up-fill' : 'bi-envelope-fill'}`} />
           </button>
         </div>
