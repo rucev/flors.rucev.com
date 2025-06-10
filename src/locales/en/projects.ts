@@ -4,14 +4,14 @@ export default [
     title: "Fetch It",
     tags: ["Vue", "TypeScript", "Tailwind", "API", "Vite"],
     links: [{ name: "web", url: "https://rucev.github.io/fetch-it" }, { name: "github", url: "https://github.com/rucev/fetch-it" }],
-    about: `<p><b>Fetch It</b> is a <b>lightweight, privacy-first frontend</b> built as an alternative to bloated or invasive API explorers. It offers a clean, performant UI for <em>quick, local testing</em> of APIs.</p><p>It provides  a responsive and distraction-free interface. No telemetry, no analytics — just fast and focused API interaction using <b>Vue</b> and <b>TypeScript</b>.</p>`
+    about: `<p><b>Fetch It</b> is a <b>lightweight, privacy-first frontend</b> app built as an alternative to bloated or invasive API testing plataforms. It offers a clean, performant UI for <em>quick, local testing</em> of APIs.</p><p>It provides a responsive and distraction-free interface. No telemetry, no analytics. Just fast and focused API interaction using <b>Vue</b> and <b>TypeScript</b>.</p>`
   },
   {
     id: "lemon",
     title: "Lemon Economists",
     tags: ["Typescript", "Next.js", "Tailwind", "Vercel", "i18n"],
     links: [{ name: "web", url: "https://www.lemoneconomists.com/" }],
-    about: "<p>This project is a fast, SEO-friendly website built with <b>Next.js</b> and <b>TypeScript</b>, using <b>WordPress as a headless CMS</b>. It serves as both a <b>landing page and a blog</b> for a small business, featuring full <b>multilingual support</b> through localized routes and translated slugs.</p><p>The frontend pulls structured content from the WordPress REST API and adapts dynamically to the selected language, with a custom routing system that handles internationalized paths and metadata.</p>"
+    about: "<p>This project is a fast, SEO-friendly website built with <b>Next.js</b> and <b>TypeScript</b>, using <b>WordPress as a headless CMS</b>. It serves as both a <b>landing page and a blog</b>, featuring full <b>multilingual support</b> through localized routes and translated slugs.</p><p>The frontend pulls structured content from the WordPress REST API and adapts dynamically to the selected language, with a custom routing system that handles internationalized paths and metadata.</p>"
   },
   {
     id: "ballopolis",
@@ -44,7 +44,7 @@ export default [
       { name: "github", url: "https://github.com/rucev/PokemonTypesGame/" },
       { name: "info-circle", url: "https://www.linkedin.com/pulse/my-first-steps-web-development-flors-rueda-cebollero" },
     ],
-    about: `<p>Started as a basic <b>Python rock-paper-scissors</b> game, and evolved into a <b>React app</b> exploring <b>Pokémon type matchups</b>. Players fight the CPU, with score tracking.</p><p>It was my <b>first web app</b>, and a major step in learning <b>React</b> and <b>web UI design</b>.</p>`,
+    about: `<p>Started as a basic <b>Python rock-paper-scissors</b> game, and evolved into a <b>React app</b> exploring <b>Pokémon type matchups</b>. Players fight the CPU, with score tracking.</p><p>It was my <b>first web app</b> with a framework, and a major step in learning <b>React</b> and <b>web UI design</b>.</p>`,
   },
   {
     id: "auca",
@@ -63,6 +63,6 @@ export default [
       { name: "web", url: "https://rucev.github.io/Percy-the-Dog" },
       { name: "github", url: "https://github.com/rucev/Percy-the-Dog" },
     ],
-    about: `<p><b>Percy the Dog</b> is a <b>static responsive site</b> created to practice <b>mobile-first design</b>. It features a <b>navbar</b>, animated <b>skill bars</b>, and a <b>contact form</b>.</p><p>Built over a few days, it helped me get comfortable with <b>HTML</b>, <b>CSS</b>, and responsive styling.</p>`
+    about: `<p><b>Percy the Dog</b> is a <b>static responsive site</b> created to practice <b>mobile-first design</b>. It features a <b>navbar</b>, animated <b>skill bars</b>, and a <b>contact form</b>.</p><p>Built when I was starting as a developer, it helped me get comfortable with <b>HTML</b>, <b>CSS</b>, and responsive styling.</p>`
   },
 ]

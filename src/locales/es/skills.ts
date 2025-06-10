@@ -17,7 +17,7 @@ export default [
   {
     id: 'practices',
     title: 'Prácticas y Metodologías',
-    detailsInner: '<p>Sigo los principios de <b>código limpio</b> y aplico prácticas <b>SOLID</b>, <b>Agile</b> y de <b>CI/CD</b> para garantizar soluciones mantenibles y escalables.</p><p>Trabajo frecuentemente con JavaScript <b>funcional</b>, desarrollo guiado por tests (<b>TDD</b>) y <b>arquitectura limpia</b>. Aplico <b>patrones de diseño</b> como Repositorio y Mapper para mejorar la organización y reutilización del código.</p><p>También he trabajado con programación orientada a objetos (<b>OOP</b>) y uso con frecuencia la <b>arquitectura hexagonal</b> para separar la lógica central de los sistemas externos, permitiendo flexibilidad y capacidad de prueba.</p>',
+    detailsInner: '<p>Trabajo siguiendo los principios de <b>código limpio</b> y aplicando prácticas <b>SOLID</b>, <b>Agile</b> y de <b>CI/CD</b> para garantizar soluciones mantenibles y escalables.</p><p>Suelo desarrollar con principios de JavaScript <b>funcional</b>, priorizando buenas prácticas de testing (<b>TDD</b>) y <b>arquitectura limpia</b>. También recurro a <b>patrones de diseño</b> como Repositorio y Mapper para mejorar la organización y reutilización del código.</p><p>Además, en otras ocasiones he trabajado con programación orientada a objetos (<b>OOP</b>) y uso con frecuencia <b>arquitectura hexagonal</b> para separar la lógica central de los sistemas externos, permitiendo flexibilidad y simplicidad para el testeo.</p>',
   },
   {
     id: 'tools',

@@ -4,15 +4,15 @@ export default [
     title: "Fetch It",
     tags: ["Vue", "TypeScript", "Tailwind", "API", "Vite"],
     links: [{ name: "web", url: "https://rucev.github.io/fetch-it" }, { name: "github", url: "https://github.com/rucev/fetch-it" }],
-    about: `<p><b>Fetch It</b> és una <b>interfície lleugera i orientada a la privacitat</b>, pensada com a alternativa a exploradors d’API més invasius o carregats. Permet fer <em>proves ràpides i locals</em> amb APIs de tercers.</p>
-         <p>Disenyada amb una interfície clara i sense distraccions. Sense analítiques ni telemetria — només <b>Vue</b>, <b>TypeScript</b> i rendiment pur per probar una API.</p>`
+    about: `<p><b>Fetch It</b> és una <b>aplicació lleugera i orientada a la privacitat</b>, pensada com a alternativa a exploradors d’API més invasius o carregats. Permet fer <em>proves ràpides i locals</em> amb APIs de tercers o locals.</p>
+         <p>Disenyada amb una interfície clara i sense distraccions. Sense analítiques ni telemetria. Només <b>Vue</b>, <b>TypeScript</b> i rendiment pur per probar una API.</p>`
   },
   {
     id: "lemon",
     title: "Lemon Economists",
     tags: ["Typescript", "Next.js", "Tailwind", "Vercel", "i18n"],
     links: [{ name: "web", url: "https://www.lemoneconomists.com/" }],
-    about: "<p>Aquest projecte és un lloc web ràpid i optimitzat per SEO, construït amb <b>Next.js</b> i <b>TypeScript</b>, i integrat amb <b>WordPress com a CMS sense cap</b>. Serveix com a <b>landing page i blog</b> per a un petit negoci, amb suport complet per a <b>múltiples idiomes</b> mitjançant rutes localitzades i slugs traduïts.</p><p>El frontend s'adapta automàticament al contingut que arriba de la API REST de WordPress, amb un sistema de rutes personalitzat per gestionar paths i metadades internacionalitzades.</p>"
+    about: "<p>Aquest projecte és un lloc web ràpid i optimitzat per SEO, construït amb <b>Next.js</b> i <b>TypeScript</b>, i integrat amb <b>WordPress com a headless CMS</b>. Serveix com a <b>landing page i blog</b>, amb suport complet per a <b>múltiples idiomes</b> mitjançant rutes localitzades i slugs traduïts.</p><p>El frontend s'adapta automàticament al contingut que arriba de la API REST de WordPress, amb un sistema de rutes personalitzat per gestionar paths i metadades internacionalitzades.</p>"
   },
   {
     id: "ballopolis",
@@ -24,9 +24,9 @@ export default [
       { name: "github", url: "https://github.com/rucev/ballopolis" },
       { name: "web", url: "https://ballopolis-demo.netlify.app/" },
     ],
-    about: `<p><b>Ballopolis</b> és un <b>joc social</b> on els jugadors <b>creen i juguen nivells personalitzats</b>. En completar-los reben <b>Crèdits de Personalització</b> i <b>logros</b> desbloquejables segons la seva creativitat i habilitat.</p>
+    about: `<p><b>Ballopolis</b> és un <b>joc social</b> on els jugadors <b>creen i juguen nivells personalitzats</b>. En completar-los reben <b>Crèdits de Personalització</b> i <b>trofeus</b> desbloquejables segons la seva creativitat i habilitat.</p>
        <p>Va ser el meu <b>primer projecte desplegat a AWS</b>, on vaig aprendre a utilitzar <b>Docker</b>, <b>Nginx</b>, <b>GitHub Actions</b> i serveis com <b>Route53</b>. També hi vaig integrar <b>Three.js</b> per visuals en 3D.</p>
-       <p><em>La versió full-stack es va retirar per motius de pressupost</em>, però <b>el demo encara és en línia</b>.</p>`
+       <p><em>La versió full-stack es va retirar per motius de pressupost</em>, però <b>la demo encara és en línia</b>.</p>`
   },
   {
     id: "aquelarre",
@@ -48,7 +48,7 @@ export default [
       { name: "info-circle", url: "https://www.linkedin.com/pulse/my-first-steps-web-development-flors-rueda-cebollero" },
     ],
     about: `<p>Va començar com un joc senzill de <b>pedra, paper o tisora en Python</b>, i va evolucionar a una <b>aplicació en React</b> sobre <b>avantatges de tipus Pokémon</b>. El jugador s'enfronta a la CPU amb puntuació acumulada.</p>
-       <p>Va ser la meva <b>primera app web</b> i un gran pas per aprendre <b>React</b> i <b>disseny de UI</b>.</p>`
+       <p>Va ser la meva <b>primera app web</b> amb un framework i un gran pas per aprendre <b>React</b> i <b>disseny de UI</b>.</p>`
   },
   {
     id: "auca",
@@ -69,6 +69,6 @@ export default [
       { name: "github", url: "https://github.com/rucev/Percy-the-Dog" },
     ],
     about: `<p><b>Percy the Dog</b> és un <b>lloc web estàtic i responsive</b> creat per practicar <b>disseny mobile-first</b>. Inclou una <b>barra de navegació</b>, <b>barres d’habilitat animades</b> i un <b>formulari de contacte</b>.</p>
-       <p>Fet en pocs dies, em va servir per consolidar <b>HTML</b>, <b>CSS</b> i disseny responsive.</p>`
+       <p>Fet durant els meus primers dies com a programadora, em va servir per consolidar <b>HTML</b>, <b>CSS</b> i disseny responsive.</p>`
   },
 ]
