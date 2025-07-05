@@ -39,10 +39,8 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 rm s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
-
           aws s3 cp s3://${{ env.BUCKET_NAME }}/dist/ s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
-          aws s3 rm s3://${{ env.BUCKET_NAME }}/dist/ --recursive || true
 
+          aws s3 rm s3://${{ env.BUCKET_NAME }}/dist/ --recursive || true
           aws s3 cp ./dist/ s3://${{ env.BUCKET_NAME }}/dist/ --recursive
 
