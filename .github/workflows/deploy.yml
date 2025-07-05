@@ -29,13 +29,9 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: |
-          npm run build
-          ls
+        run: npm run build
 
-      - name: Git clone the repository
-        uses: actions/checkout@v4
-      - name: configure aws credentials
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{secrets.ROLE_ARN}}
@@ -43,7 +39,6 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          ls
           aws s3 rm s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
 
           aws s3 cp s3://${{ env.BUCKET_NAME }}/dist/ s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
