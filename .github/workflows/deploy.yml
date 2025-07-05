@@ -39,8 +39,17 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 cp s3://${{ env.BUCKET_NAME }}/dist/ s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
+          set -e
 
+          echo "Uploading new build to new_dist/"
+          aws s3 cp ./dist/ s3://${{ env.BUCKET_NAME }}/new_dist/ --recursive
+
+          echo "Archiving current dist/ to old_dist/"
+          aws s3 rm s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
+          aws s3 cp s3://${{ env.BUCKET_NAME }}/dist/ s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
           aws s3 rm s3://${{ env.BUCKET_NAME }}/dist/ --recursive || true
-          aws s3 cp ./dist/ s3://${{ env.BUCKET_NAME }}/dist/ --recursive
+
+          echo "Promoting new_dist/ to dist/"
+          aws s3 cp s3://${{ env.BUCKET_NAME }}/new_dist/ s3://${{ env.BUCKET_NAME }}/dist/ --recursive
+          aws s3 rm s3://${{ env.BUCKET_NAME }}/new_dist/ --recursive
 
