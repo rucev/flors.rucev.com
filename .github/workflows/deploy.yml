@@ -1,0 +1,50 @@
+name: Deploy to AWS
+on:
+  push:
+    branches: ['main']
+
+env:
+  BUCKET_NAME : "rucev-web"
+  AWS_REGION : "eu-west-3"
+
+permissions:
+  id-token: write   
+  contents: read    
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: './app/'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+        with:
+          role-to-assume: flors.rucev.com-pipeline
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to S3
+        run: |
+          aws s3 rm s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
+
+          aws s3 cp s3://${{ env.BUCKET_NAME }}/dist/ s3://${{ env.BUCKET_NAME }}/old_dist/ --recursive || true
+          aws s3 rm s3://${{ env.BUCKET_NAME }}/dist/ --recursive || true
+
+          aws s3 cp ./dist/ s3://${{ env.BUCKET_NAME }}/dist/ --recursive
+

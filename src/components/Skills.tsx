@@ -4,7 +4,7 @@ import { BACKEND_BADGES, DEVOPS_BADGES, FRONTEND_BADGES, LIBRARY_BADGES } from "
 const Skills = ({ t }: { t: SkillsTranslations }) => {
 
 
-  return <section className="w-full max-h-screen lg:w-4/5 pt-3">
+  return <section className="w-full max-h-screen lg:w-4/5 pt-3 mb-28">
     <div className="collapse collapse-arrow bg-neutral border border-base-300 mb-3">
       <input type="radio" name="my-accordion-1" />
       <div className="collapse-title font-semibold">

@@ -8,7 +8,9 @@ const NavMenu = ({ t, view, setView, windowsType, }: { t: LinksTranslations, vie
 
   const isPortrait =
     windowsType === "sm/portrait" ||
+    windowsType === "sm/landscape" ||
     windowsType === "md/portrait" ||
+    windowsType === "md/landscape" ||
     windowsType === "lg/portrait";
 
   const navLinks: { key: View; label: string }[] = [

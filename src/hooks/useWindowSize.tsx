@@ -23,8 +23,8 @@ export default (): WindowsType => {
     if (height <= 480 && isLandscape) return 'sm/landscape'
     if (width <= 480 && isPortrait) return 'sm/portrait'
 
-    if (height <= 780 && isPortrait) return 'md/portrait'
-    if (width <= 780 && isLandscape) return 'md/landscape'
+    if (height <= 1030 && isPortrait) return 'md/portrait'
+    if (width <= 1030 && isLandscape) return 'md/landscape'
 
     if (isLandscape) return 'lg/landscape'
     if (isPortrait) return 'lg/portrait'
@@ -37,7 +37,6 @@ export default (): WindowsType => {
   useEffect(() => {
     if (hasWindow) {
       const handleResize = () => setWindowsType(getWindowType())
-      console.log(windowType)
 
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize)

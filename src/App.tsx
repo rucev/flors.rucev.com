@@ -67,7 +67,7 @@ const App = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{t.titleName}</h1>
                 <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{t.role}</h2>
               </div>
-              <div className={`h-fit flex ${windowsType === 'sm/portrait' || windowsType === 'md/portrait' || windowsType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
+              <div className={`h-fit flex ${windowsType === 'sm/portrait' || windowsType === 'sm/landscape' || windowsType === 'md/portrait' || windowsType === 'md/landscape' || windowsType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
                 <NavMenu t={t.links} view={view} setView={setView} windowsType={windowsType} />
                 {view === 'skills' && <Skills t={t.skills} />}
                 {view === 'exp' && <Exp t={t.exp} />}
@@ -75,7 +75,7 @@ const App = () => {
                 {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} t={t.contact} />}
               </div>
             </div>
-            <div className={`${windowsType === 'sm/landscape' || windowsType === 'md/landscape' ? 'mt-14' : 'mt-12'}`} ref={footerRef}>
+            <div className={`${windowsType === 'sm/landscape' || windowsType === 'md/landscape' ? 'mt-14' : 'mt-18'}`} ref={footerRef}>
               <Footer t={t.footer} locale={locale ? locale : 'en'} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} windowsType={windowsType} />
             </div>
             <TermsModal t={t.privacy} />

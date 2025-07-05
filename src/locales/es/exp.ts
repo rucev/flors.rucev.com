@@ -15,7 +15,7 @@ export default [
   },
   {
     id: 'fullstack-outsideral',
-    years: "Gener 2024 - Juny 2024",
+    years: "Enero 2024 - Junio 2024",
     role: 'Full Stack Developer',
     company: 'Outsideral',
     contentInner: "<li>Construir landing pages y blogs dinámicos y responsive con <b>Next.js</b>, optimizando el rendimiento, el SEO y la interacción del usuario.</li><li>Integrar con un <b>backend de WordPress (PHP)</b> para facilitar la gestión de contenido manteniendo una experiencia frontend rápida y moderna.</li><li>Focus en la experiencia de usuario, <b>optimizando los diseños y las interacciones</b> para vistas móviles y de escritorio.</li><li>Implementar <b>buenas prácticas de SEO y optimizaciones de rendimiento</b>, como el renderizado del lado del servidor y la optimización de imágenes.</li><li>Desarrollar herramientas personalizadas para clientes, como <b>aplicaciones de manejo de inventario</b> y paneles administrativos.</li>"
