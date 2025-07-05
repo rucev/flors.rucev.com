@@ -4,7 +4,7 @@ import type { WindowsType } from "../utils/types"
 const Footer = ({ locale, setIsMenuOpen, isMenuOpen, windowsType, t }: { locale: validLocales, isMenuOpen: Boolean, setIsMenuOpen: Function, windowsType: WindowsType, t: FooterTranslations }) => {
 
   return <div className="fixed bottom-0 w-screen max-w-screen flex flex-col z-40" >
-    <footer className={`text-lg py-0.5 w-full h-fit bg-neutral flex ${windowsType === 'sm/portrait' ? 'flex-col' : 'flex-row'} items-center justify-between px-5`}>
+    <footer className={`w-full h-fit bg-neutral flex text-lg py-1 ${windowsType === 'sm/portrait' ? 'flex-col' : 'flex-row'} items-center justify-between px-5`}>
       <button aria-label={t.lang} onClick={() => setIsMenuOpen(!isMenuOpen)} className="hover:cursor-pointer hover:text-accent flex flex-row gap-2">
         <i className="bi bi-translate"></i>
         {locale === 'es' ? 'Español' : locale === 'ca' ? 'Català' : 'English'}
