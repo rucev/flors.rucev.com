@@ -26,7 +26,7 @@ const Projects = ({ t }: { t: ProjectsTranslations }) => {
 
   return (
     <section
-      className="w-11/12 max-h-screen lg:w-4/5 gap-3 flex flex-col"
+      className="w-11/12 h-fit lg:w-4/5 gap-3 flex flex-col"
       aria-label="Project carousel"
     >
       <div className="flex justify-center gap-2 pt-5">

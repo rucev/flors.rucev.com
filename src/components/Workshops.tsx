@@ -3,7 +3,7 @@ import type { WorkshopsTranslations } from "../locales"
 const Workshops = ({ t }: { t: WorkshopsTranslations }) => {
 
 
-  return <section className="w-full max-h-screen lg:w-4/5 pt-6 mb-28">
+  return <section className="w-full h-fit lg:w-4/5 pt-6">
     <ul className="list bg-base-100 rounded-box shadow-md">
       {
         t.workshops.map((workshop, index) => (

@@ -68,8 +68,8 @@ const App = () => {
             view === 'landing' &&
             <LandingBg windowsType={windowType} />
           }
-          <main className="z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10">
-            <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen">
+          <main className={`z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10 ${view === 'exp' || view === 'workshops' || view === 'skills' ? 'gap-28' : 'gap-2'}`}>
+            <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen h-fit">
               <div className="flex flex-col w-full">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{t.titleName}</h1>
                 <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{t.role}</h2>
@@ -83,7 +83,7 @@ const App = () => {
                 {view === 'workshops' && <Workshops t={t.workshops} />}
               </div>
             </div>
-            <div className={`${windowType === 'sm/landscape' || windowType === 'md/landscape' ? 'mt-14' : 'mt-18'}`} ref={footerRef}>
+            <div ref={footerRef}>
               <Footer t={t.footer} locale={locale ? locale : 'en'} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} windowsType={windowType} />
             </div>
             <TermsModal t={t.privacy} />
