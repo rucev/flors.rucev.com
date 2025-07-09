@@ -2,6 +2,7 @@ import exp from './exp'
 import privacy from './privacy'
 import projects from './projects'
 import skills from './skills'
+import workshops from './workshops'
 
 export default {
   titleName: 'Flors Rueda Cebollero',
@@ -53,9 +54,9 @@ export default {
     lang: 'Canviar idioma'
   },
   other: {
-    errorMessage: 'Sorry, something went wrong!',
-    smallScreenMessage: 'Looks like your screen’s a bit small! Try resizing your window or using a larger device for the best view.',
-    submitMessage: 'Message sent successfully'
+    errorMessage: 'Ups, alguna cosa ha anat malament!',
+    smallScreenMessage: 'La teva pantalla és una mica petita! Prova de redimensionar la finestra o utilitza un dispositiu més gran per a una millor visualització.',
+    submitMessage: 'Missatge enviat amb èxit'
   },
   privacy: {
     title: "Política de Privacitat",
@@ -73,5 +74,9 @@ export default {
   projects: {
     title: 'Portfolio de projectes',
     projects: projects
+  },
+  workshops: {
+    title: 'Repositoris de tallers',
+    workshops: workshops
   }
 }

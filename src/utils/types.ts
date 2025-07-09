@@ -24,6 +24,12 @@ export type Project = {
   about: string
 }
 
+export type Workshop = {
+  title: string
+  link: string
+  about: string
+}
+
 export type PrivacySection = {
   heading: string,
   content: string

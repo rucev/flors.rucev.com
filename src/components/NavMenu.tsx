@@ -18,7 +18,7 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
     <nav
       className={`max-w-screen text-2xl flex font-bold gap-3 flex-col ${isRowDisplay
         ? "gap-7"
-        : "gap-3"
+        : "gap-5"
         }`}
       role="navigation"
       aria-label={t.menuLabel}

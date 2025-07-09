@@ -1,4 +1,4 @@
-import type { ExperienceItem, PrivacySection, Project, Skill, Topic } from "../utils/types"
+import type { ExperienceItem, PrivacySection, Project, Skill, Topic, Workshop } from "../utils/types"
 import ca from "./ca/ca"
 import en from "./en/en"
 import es from "./es/es"
@@ -79,6 +79,11 @@ export interface ProjectsTranslations {
   projects: Project[]
 }
 
+export interface WorkshopsTranslations {
+  title: string
+  workshops: Workshop[]
+}
+
 export interface Translation {
   titleName: string
   role: string
@@ -89,7 +94,8 @@ export interface Translation {
   privacy: PrivacyTranslations
   exp: ExperienceTranslations
   skills: SkillsTranslations
-  projects: ProjectsTranslations
+  projects: ProjectsTranslations,
+  workshops: WorkshopsTranslations
 }
 
 export type validLocales = 'es' | 'en' | 'ca'

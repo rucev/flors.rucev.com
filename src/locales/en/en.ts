@@ -2,6 +2,7 @@ import exp from './exp'
 import privacy from './privacy'
 import projects from './projects'
 import skills from './skills'
+import workshops from './workshops'
 
 export default {
   titleName: 'Flors Rueda Cebollero',
@@ -73,5 +74,9 @@ export default {
   projects: {
     title: 'Portfolio of projects',
     projects: projects
+  },
+  workshops: {
+    title: 'Workshops’ repositories',
+    workshops: workshops
   }
 }

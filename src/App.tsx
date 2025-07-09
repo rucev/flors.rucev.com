@@ -13,6 +13,7 @@ import ErrorToast from "./components/ErrorToast"
 import TermsModal from "./components/TermsModal"
 import useWindowSize from "./hooks/useWindowSize"
 import SmallScreenMsg from "./components/SmallScreenMsg"
+import Workshops from "./components/Workshops"
 
 const App = () => {
   const [locale, setLocale] = useState<validLocales | null>(null)
@@ -79,6 +80,7 @@ const App = () => {
                 {view === 'exp' && <Exp t={t.exp} />}
                 {view === 'projects' && <Projects t={t.projects} />}
                 {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} t={t.contact} />}
+                {view === 'workshops' && <Workshops t={t.workshops} />}
               </div>
             </div>
             <div className={`${windowType === 'sm/landscape' || windowType === 'md/landscape' ? 'mt-14' : 'mt-18'}`} ref={footerRef}>
