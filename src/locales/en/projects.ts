@@ -9,7 +9,7 @@ export default [
   {
     id: "lemon",
     title: "Lemon Economists",
-    tags: ["Typescript", "Next.js", "Tailwind", "Vercel", "i18n"],
+    tags: ["TypeScript", "Next.js", "Tailwind", "Vercel", "i18n"],
     links: [{ name: "web", url: "https://www.lemoneconomists.com/" }],
     about: "<p>This project is a fast, SEO-friendly website built with <b>Next.js</b> and <b>TypeScript</b>, using <b>WordPress as a headless CMS</b>. It serves as both a <b>landing page and a blog</b>, featuring full <b>multilingual support</b> through localized routes and translated slugs.</p><p>The frontend pulls structured content from the WordPress REST API and adapts dynamically to the selected language, with a custom routing system that handles internationalized paths and metadata.</p>"
   },
