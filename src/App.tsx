@@ -24,7 +24,8 @@ const App = () => {
 
   const menuRef = useRef<HTMLUListElement>(null)
   const footerRef = useRef<HTMLDivElement>(null)
-  const windowsType = useWindowSize()
+  const windowType = useWindowSize()
+  const [isRowDisplay, setIsRowDisplay] = useState<Boolean>(windowType === 'lg/landscape' || windowType === "sm/landscape")
 
   useEffect(() => {
     if (!locale) {
@@ -50,16 +51,21 @@ const App = () => {
     return () => document.removeEventListener('click', handleClick)
   }, [])
 
+  useEffect(() => {
+    setIsRowDisplay(windowType === "lg/landscape" || windowType === "sm/landscape")
+  }, [windowType])
+
+
   if (!t || !locale) return
 
   return (
     <>
-      {windowsType === 'not' ? <SmallScreenMsg t={t.other} />
+      {windowType === 'not' ? <SmallScreenMsg t={t.other} />
         :
         <div>
           {
             view === 'landing' &&
-            <LandingBg windowsType={windowsType} />
+            <LandingBg windowsType={windowType} />
           }
           <main className="z-50 font-main overflow-x-hidden max-w-screen min-h-screen h-fit w-full flex flex-col justify-between pt-7 md:pt-10">
             <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen">
@@ -67,16 +73,16 @@ const App = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{t.titleName}</h1>
                 <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{t.role}</h2>
               </div>
-              <div className={`h-fit flex ${windowsType === 'sm/portrait' || windowsType === 'sm/landscape' || windowsType === 'md/portrait' || windowsType === 'md/landscape' || windowsType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
-                <NavMenu t={t.links} view={view} setView={setView} windowsType={windowsType} />
+              <div className={`h-fit flex ${windowType === 'sm/portrait' || windowType === 'sm/landscape' || windowType === 'md/portrait' || windowType === 'md/landscape' || windowType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
+                <NavMenu t={t.links} view={view} setView={setView} isRowDisplay={isRowDisplay} />
                 {view === 'skills' && <Skills t={t.skills} />}
                 {view === 'exp' && <Exp t={t.exp} />}
                 {view === 'projects' && <Projects t={t.projects} />}
                 {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} t={t.contact} />}
               </div>
             </div>
-            <div className={`${windowsType === 'sm/landscape' || windowsType === 'md/landscape' ? 'mt-14' : 'mt-18'}`} ref={footerRef}>
-              <Footer t={t.footer} locale={locale ? locale : 'en'} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} windowsType={windowsType} />
+            <div className={`${windowType === 'sm/landscape' || windowType === 'md/landscape' ? 'mt-14' : 'mt-18'}`} ref={footerRef}>
+              <Footer t={t.footer} locale={locale ? locale : 'en'} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} windowsType={windowType} />
             </div>
             <TermsModal t={t.privacy} />
           </main>

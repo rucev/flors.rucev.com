@@ -1,4 +1,4 @@
-export type View = 'landing' | 'skills' | 'projects' | 'exp' | 'contact'
+export type View = 'landing' | 'skills' | 'projects' | 'exp' | 'contact' | 'workshops'
 
 export type Topic = 'other' | 'partnership' | 'work' | 'content' | 'feedback' | 'bug' | 'privacy'
 

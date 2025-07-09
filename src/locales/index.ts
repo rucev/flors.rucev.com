@@ -8,6 +8,7 @@ export interface LinksTranslations {
   expLink: string
   projectsLink: string
   contactLink: string,
+  workshopsLink: string,
   menuLabel: string
 }
 

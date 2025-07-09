@@ -11,6 +11,7 @@ export default {
     expLink: 'Experiencia',
     projectsLink: 'Proyectos',
     contactLink: '¡Charlemos!',
+    workshopsLink: 'Talleres',
     menuLabel: 'Navegación principal'
   },
   contact: {

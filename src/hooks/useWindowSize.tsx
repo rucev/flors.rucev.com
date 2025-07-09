@@ -32,11 +32,16 @@ export default (): WindowsType => {
     return '?'
   }
 
-  const [windowType, setWindowsType] = useState(getWindowType())
+  const [windowType, setWindowsType] = useState<WindowsType>(getWindowType())
+
 
   useEffect(() => {
     if (hasWindow) {
-      const handleResize = () => setWindowsType(getWindowType())
+      const handleResize = () => {
+        setWindowsType(getWindowType())
+      }
+
+
 
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize)
