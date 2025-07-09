@@ -16,7 +16,7 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
 
   return (
     <nav
-      className={`max-w-screen text-2xl flex font-bold gap-3 flex-col ${isRowDisplay
+      className={`max-w-screen flex font-bold gap-3 flex-col text-xl md:text-2xl  ${isRowDisplay
         ? "gap-7"
         : "gap-5"
         }`}
@@ -28,17 +28,18 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
         : "flex-col w-1/3 pt-3 lg:pt-20"
         }`}>
         {navLinks.map(({ key, label }) => {
-          if (key !== 'contact') return <button
+          if (key !== 'contact') return <div
             key={key}
-            onClick={() => handleClick(key)}
             aria-current={view === key ? "page" : undefined}
-            className={`basis-1/3 cursor-pointer relative inline-block group w-fit text-left focus:outline-none ${view === key ? "text-accent" : "hover:text-accent text-base-content"}`}
+            className={`basis-1/3 w-fit`}
           >
-            {label}
-            {view !== key && (
-              <span className="absolute rounded-2xl left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full animate-pulse" />
-            )}
-          </button>
+            <button onClick={() => handleClick(key)} className={`cursor-pointer relative inline-block group w-fit text-left focus:outline-none ${view === key ? "text-accent" : "hover:text-accent text-base-content"}`}>
+              {label}
+              {view !== key && (
+                <span className="absolute rounded-2xl left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full animate-pulse" />
+              )}
+            </button>
+          </div>
         })}
       </div>
       <button

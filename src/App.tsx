@@ -63,7 +63,7 @@ const App = () => {
     <>
       {windowType === 'not' ? <SmallScreenMsg t={t.other} />
         :
-        <div>
+        <div className="z-0">
           {
             view === 'landing' &&
             <LandingBg windowsType={windowType} />
@@ -72,7 +72,7 @@ const App = () => {
             <div className="flex flex-col px-5 md:px-10 gap-1 max-w-screen h-fit">
               <div className="flex flex-col w-full">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl text-accent font-bold uppercase">{t.titleName}</h1>
-                <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold">{t.role}</h2>
+                <h2 className="text-xl md:text-3xl text-base-content pl-0.5 font-bold opacity-70">{t.role}</h2>
               </div>
               <div className={`h-fit flex ${windowType === 'sm/portrait' || windowType === 'sm/landscape' || windowType === 'md/portrait' || windowType === 'md/landscape' || windowType === 'lg/portrait' ? 'flex-col' : 'flex-row gap-5'} w-full justify-between max-w-screen`}>
                 <NavMenu t={t.links} view={view} setView={setView} isRowDisplay={isRowDisplay} />
@@ -84,17 +84,17 @@ const App = () => {
               </div>
             </div>
             <div ref={footerRef}>
+              {
+                <ul ref={menuRef} className={`${isMenuOpen ? `dropdown-content fixed ${windowType === 'sm/portrait' ? 'bottom-16 ml-10' : 'bottom-10 ml-5'} menu bg-base-100 rounded-box z-20 w-52 p-2 shadow-sm` : "hidden"}`}>
+                  {LOCALES.map(_locale => {
+                    if (_locale.locale !== locale) return <li key={_locale.tag} onClick={() => { setLocale(_locale.locale); setIsMenuOpen(false) }} className="pl-5 py-1 w-full cursor-pointer rounded-xl hover:bg-base-200">{_locale.tag}</li>
+                  })}
+                </ul>
+              }
               <Footer t={t.footer} locale={locale ? locale : 'en'} setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} windowsType={windowType} />
             </div>
             <TermsModal t={t.privacy} />
           </main>
-          {
-            <ul ref={menuRef} className={`${isMenuOpen ? "dropdown-content fixed bottom-10 ml-5 menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm" : "hidden"}`}>
-              {LOCALES.map(_locale => {
-                if (_locale.locale !== locale) return <li key={_locale.tag} onClick={() => { setLocale(_locale.locale); setIsMenuOpen(false) }} className="pl-5 py-1 w-full cursor-pointer rounded-xl hover:bg-base-200">{_locale.tag}</li>
-              })}
-            </ul>
-          }
           {
             isMessageSubmited && <SubmitToast onClose={() => setIsMessageSubmited(false)} t={t.other} />
           }
