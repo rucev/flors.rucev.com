@@ -1,7 +1,12 @@
-import type { ExperienceTranslations } from "../locales";
+import type { ExperienceTranslations } from "../locales"
+import { BACKEND_BADGES, DEVOPS_BADGES, FRONTEND_BADGES, LIBRARY_BADGES } from "../utils/BADGES"
 
 const Exp = ({ t }: { t: ExperienceTranslations }) => {
 
+  const getBadge = (name: string): { name: string, url: string } | undefined => {
+    const allBadges = [...BACKEND_BADGES, ...DEVOPS_BADGES, ...FRONTEND_BADGES, ...LIBRARY_BADGES]
+    return allBadges.find(badge => badge.name === name)
+  }
 
   return (
     <section className="relative w-full h-fit lg:w-4/5 pt-3 pl-4" aria-labelledby="experience-section">
@@ -25,6 +30,16 @@ const Exp = ({ t }: { t: ExperienceTranslations }) => {
             </div>
             <div className="collapse-content w-full flex flex-col justify-start gap-1" role="region"
               id={panelId} aria-labelledby={headingId}>
+              <ul className="w-full flex flex-wrap gap-2 pb-5">
+                {
+                  work.stack.map((tech, index) => {
+                    const badge = getBadge(tech)
+                    return <li>{
+                      badge && <img className="rounded-lg" key={index} src={badge.url} alt={badge.name} />
+                    }</li>
+                  })
+                }
+              </ul>
               <div className="text-sm text-justify" dangerouslySetInnerHTML={{ __html: work.contentInner }} />
             </div>
 

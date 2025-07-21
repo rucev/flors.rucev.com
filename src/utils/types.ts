@@ -6,7 +6,8 @@ export type ExperienceItem = {
   role: string
   years: string
   company: string
-  contentInner: string
+  contentInner: string,
+  stack: string[],
   id: string
 }
 

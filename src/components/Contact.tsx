@@ -78,7 +78,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
   }
 
   return (
-    <div className="w-full lg:w-4/5 md:pt-10 h-fit">
+    <div className="w-full lg:w-4/5 md:pt-10 h-fit pb-16 md:pb-2">
       <h2 className="sr-only">{t.title}</h2>
       <fieldset>
         <legend className="px-2 text-accent text-lg font-semibold">{t.formTopicsLabel}</legend>

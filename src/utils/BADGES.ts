@@ -16,7 +16,9 @@ export const BACKEND_BADGES = [
   { name: 'C#', url: 'https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white' },
   { name: 'python', url: 'https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54' },
   { name: 'go', url: 'https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white' },
-  { name: 'mongo', url: 'https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white' }
+  { name: 'mongo', url: 'https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white' },
+  { name: 'php', url: 'https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white' },
+  { name: 'mySql', url: 'https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white' }
 ];
 
 export const DEVOPS_BADGES = [
@@ -28,6 +30,8 @@ export const DEVOPS_BADGES = [
   { name: 'netlify', url: 'https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7' },
   { name: 'render', url: 'https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white' },
   { name: 'githubPages', url: 'https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white' },
+  { name: 'azure', url: 'https://img.shields.io/badge/azure-%230072C6.svg?style=for-the-badge&logo=microsoftazure&logoColor=white' },
+  { name: 'gcp', url: 'https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white' }
 ];
 
 export const LIBRARY_BADGES = [
