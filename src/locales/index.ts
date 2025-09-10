@@ -1,4 +1,4 @@
-import type { ExperienceItem, PrivacySection, Project, Skill, Topic, Workshop } from "../utils/types"
+import type { AcademicItem, ExperienceItem, PrivacySection, Project, Skill, Topic, Workshop } from "../utils/types"
 import ca from "./ca/ca"
 import en from "./en/en"
 import es from "./es/es"
@@ -9,7 +9,13 @@ export interface LinksTranslations {
   projectsLink: string
   contactLink: string,
   workshopsLink: string,
+  academicLink: string,
   menuLabel: string
+}
+
+export interface AcademicTranslations {
+  title: string
+  background: AcademicItem[],
 }
 
 export interface ContactTranslations {
@@ -95,7 +101,8 @@ export interface Translation {
   exp: ExperienceTranslations
   skills: SkillsTranslations
   projects: ProjectsTranslations,
-  workshops: WorkshopsTranslations
+  workshops: WorkshopsTranslations,
+  academic: AcademicTranslations
 }
 
 export type validLocales = 'es' | 'en' | 'ca'

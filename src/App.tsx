@@ -14,6 +14,7 @@ import TermsModal from "./components/TermsModal"
 import useWindowSize from "./hooks/useWindowSize"
 import SmallScreenMsg from "./components/SmallScreenMsg"
 import Workshops from "./components/Workshops"
+import Academic from "./components/Academic"
 
 const App = () => {
   const [locale, setLocale] = useState<validLocales | null>(null)
@@ -81,6 +82,7 @@ const App = () => {
                 {view === 'projects' && <Projects t={t.projects} />}
                 {view === 'contact' && <Contact setErrorOnSubmit={setHasErrorHappen} setMessageSubmitted={setIsMessageSubmited} t={t.contact} />}
                 {view === 'workshops' && <Workshops t={t.workshops} />}
+                {view === 'academic' && <Academic t={t.academic} />}
               </div>
             </div>
             <div ref={footerRef}>

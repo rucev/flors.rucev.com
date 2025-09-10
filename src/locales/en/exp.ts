@@ -1,8 +1,16 @@
 export default [
   {
+    id: 'fullstack-binovo',
+    years: "September 2025 – now",
+    role: 'Full Stack Custom Software Developer',
+    stack: ['html', 'css', 'js', 'ts', 'react', 'node', 'php', 'C#', 'git', 'python'],
+    company: 'Binovo IT Human Project',
+    contentInner: "<li>Developed <b>responsive</b> and user-friendly <b>web applications</b>.</li><li>Designed <b>scalable backends</b>, including <b>robust REST APIs</b> and <b>external system integrations</b>.</li><li>Collaborated in <b>agile teams</b>: <b>requirement analysis</b>, <b>estimation</b>, <b>documentation</b>, <b>testing/debugging</b>, and <b>client communication</b></li><li>Maintained and improved existing applications through <b>code reviews</b>, <b>troubleshooting</b>, and <b>continuous enhancement</b>.</li>"
+  },
+  {
     id: 'fullstack-isdi',
-    years: "March 2024 – now",
-    role: 'Full Stack Developer',
+    years: "March 2024 – July 2025",
+    role: 'Full Stack Development Teacher',
     stack: ['html', 'css', 'js', 'react', 'vite', 'node', 'express', 'mongo', 'git', 'tailwind', 'mocha', 'aws', 'gcp', 'vercel', 'netlify', 'render', 'python'],
     company: 'ISDI Coders',
     contentInner: "<li>Teach on Full Stack Bootcamp: <b>JavaScript</b>, <b>HTML</b>, <b>CSS</b>, <b>React</b>, <b>Tailwind</b>, <b>Node.js</b>, <b>MongoDB</b>, and testing with <b>Mocha</b> and <b>Chai</b>.</li><li>Provide personalized one-on-one guidance, feedback, and <b>code troubleshooting</b>.</li><li>Promote coding best practices, including <b>clean code</b> principles, <b>SOLID</b> design, and comprehensive <b>testing strategies</b>.</li><li>Create a supportive, engaging learning environment for students.</li><li>Workshops and demos on different topics: e.g. <b>CI/CD</b>, <b>asynchrony in JS</b>, <b>Functional React vs OOP React</b>.</li>"
@@ -10,7 +18,7 @@ export default [
   {
     id: 'techlead-inspiranza',
     years: "June 2024 - October 2024",
-    role: 'Technical Lead',
+    role: 'Interim Technical Lead',
     stack: ['react', 'expo', 'azure', 'git', 'js', 'mocha', 'vitest', 'testingLibrary'],
     company: 'Inspiranza',
     contentInner: "<li>Defined and prioritized the <b>MVP</b> in collaboration with <b>stakeholders</b>, setting clear, achievable goals.</li><li>Selected an optimal tech stack (<b>React Native</b>) for efficient, scalable development.</li><li><b>Implemented a CI/CD</b> pipeline for reliable deployments with <b>Expo Application Services</b>, <b>GitHub Actions</b> and <b>Azure</b>.</li><li>Configured GitHub repository <b>security and permissions</b> to safeguard the codebase.</li><li><b>Set the onboarding materials and docs</b> to welcome developers of different levels of experience to the team.</li><li><b>Established coding standards and workflows</b> to improve team productivity and ensure high-quality deliverables.</li>"

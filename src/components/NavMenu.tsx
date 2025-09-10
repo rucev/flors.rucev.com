@@ -11,6 +11,7 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
     { key: "exp", label: t.expLink },
     { key: "projects", label: t.projectsLink },
     { key: "workshops", label: t.workshopsLink },
+    { key: "academic", label: t.academicLink },
     { key: "contact", label: t.contactLink },
   ];
 
@@ -25,13 +26,13 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
     >
       <div className={`flex gap-3 ${!isRowDisplay
         ? "flex-row flex-wrap pt-4 w-full"
-        : "flex-col w-1/3 pt-3 lg:pt-20"
+        : "flex-col pt-3 lg:pt-20"
         }`}>
         {navLinks.map(({ key, label }) => {
-          if (key !== 'contact') return <div
+          return <div
             key={key}
             aria-current={view === key ? "page" : undefined}
-            className={`basis-1/3 w-fit`}
+            className={`basis-1/3 w-fit ${key === 'contact' && isRowDisplay ? 'pt-5' : 'pt-0'}`}
           >
             <button onClick={() => handleClick(key)} className={`cursor-pointer relative inline-block group w-fit text-left focus:outline-none ${view === key ? "text-accent" : "hover:text-accent text-base-content"}`}>
               {label}
@@ -42,16 +43,7 @@ const NavMenu = ({ t, view, setView, isRowDisplay }: { t: LinksTranslations, vie
           </div>
         })}
       </div>
-      <button
-        onClick={() => handleClick(navLinks[navLinks.length - 1].key)}
-        aria-current={view === navLinks[navLinks.length - 1].key ? "page" : undefined}
-        className={`cursor-pointer relative inline-block group w-fit text-left focus:outline-none ${view === navLinks[navLinks.length - 1].key ? "text-accent" : "hover:text-accent text-base-content"}`}
-      >
-        {navLinks[navLinks.length - 1].label}
-        {view !== navLinks[navLinks.length - 1].key && (
-          <span className="absolute rounded-2xl left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full animate-pulse" />
-        )}
-      </button>
+
     </nav>
   );
 };

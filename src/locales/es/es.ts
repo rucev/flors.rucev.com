@@ -1,3 +1,4 @@
+import academic from './academic'
 import exp from './exp'
 import privacy from './privacy'
 import projects from './projects'
@@ -12,7 +13,8 @@ export default {
     expLink: 'Experiencia',
     projectsLink: 'Proyectos',
     contactLink: '¡Charlemos!',
-    workshopsLink: 'Talleres',
+    workshopsLink: 'Tutoriales',
+    academicLink: 'Formación',
     menuLabel: 'Navegación principal'
   },
   contact: {
@@ -79,5 +81,9 @@ export default {
   workshops: {
     title: 'Repositorios de talleres',
     workshops: workshops
+  },
+  academic: {
+    title: 'Formación Académica',
+    background: academic
   }
 }

@@ -1,4 +1,4 @@
-export type View = 'landing' | 'skills' | 'projects' | 'exp' | 'contact' | 'workshops'
+export type View = 'landing' | 'skills' | 'projects' | 'exp' | 'contact' | 'workshops' | 'academic'
 
 export type Topic = 'other' | 'partnership' | 'work' | 'content' | 'feedback' | 'bug' | 'privacy'
 
@@ -8,6 +8,13 @@ export type ExperienceItem = {
   company: string
   contentInner: string,
   stack: string[],
+  id: string
+}
+
+export type AcademicItem = {
+  title: string
+  date: string
+  school: string
   id: string
 }
 
