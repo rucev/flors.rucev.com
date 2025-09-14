@@ -11,7 +11,7 @@ const Academic = ({ t }: { t: AcademicTranslations }) => {
         <table className="table">
           <tbody>
             {t.background.map(course => {
-              return <tr>
+              return <tr key={course.id}>
                 <td className="flex flex-col">
                   <span className="text-lg font-bold text-secondary">{course.title}</span>
                   <div className="flex flex-row gap-3">

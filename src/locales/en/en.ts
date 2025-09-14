@@ -13,7 +13,7 @@ export default {
     expLink: 'Experience',
     projectsLink: 'Projects',
     contactLink: 'Let’s Talk!',
-    workshopsLink: 'Tutorials',
+    workshopsLink: 'Repositories',
     academicLink: 'Learning Path',
     menuLabel: 'Main Navigation'
   },

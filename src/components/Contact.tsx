@@ -78,11 +78,11 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
   }
 
   return (
-    <div className="w-full lg:w-4/5 md:pt-10 h-fit pb-16 md:pb-2">
+    <div className="w-full lg:w-4/5 pt-3 md:pt-10 h-fit pb-24 md:pb-18">
       <h2 className="sr-only">{t.title}</h2>
       <fieldset>
         <legend className="px-2 text-accent text-lg font-semibold">{t.formTopicsLabel}</legend>
-        <div className="pt-1 pb-5 w-full pl-0.5 flex flex-row gap-1 flex-wrap">
+        <div className="pt-1 pb-5 w-full pl-0.5 flex flex-row gap-1 flex-wrap min-h-fit">
           {topicsAvailable.map((topic, index) => {
             const key = getFormTagKey(topic)
             return (
@@ -103,7 +103,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
       <form onSubmit={handleFormSubmit} id="form" noValidate>
         <input type="hidden" id="relevantTopic" onChange={handleRelevantChange} />
         <input type="hidden" name="topics" value={topicsSelected.toString()} readOnly />
-        <div className="w-full flex flex-col md:flex-row md:justify-between md:gap-5">
+        <div className="w-full flex flex-col md:flex-row md:justify-between md:gap-5 min-h-fit">
           <div className="w-full flex flex-col">
             <label htmlFor="name" className="label">{t.formNameLabel}</label>
             <input
@@ -116,13 +116,13 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
               aria-invalid={isNameValid === false}
               aria-describedby="name-error"
             />
-            <p id="name-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-7">
+            <p id="name-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-12 md:h-9 md:h-9 min-h-fit">
               {isNameValid === false ? <>{t.formNameError}</> : null}
             </p>
             <ValidationError prefix="Name" field="name" errors={state.errors} />
           </div>
 
-          <div className="w-full flex flex-col">
+          <div className="w-full flex flex-col min-h-fit">
             <label htmlFor="email" className="label">{t.formEmailLabel}</label>
             <input
               id="email"
@@ -134,7 +134,7 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
               aria-invalid={isEmailValid === false}
               aria-describedby="email-error"
             />
-            <p id="email-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-7">
+            <p id="email-error" role="alert" className="text-error font-semibold text-sm py-1 pl-2 h-12 md:h-9 min-h-fit">
               {isEmailValid === false ? <>{t.formEmailError}</> : null}
             </p>
             <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -156,14 +156,14 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
           aria-invalid={isMessageValid === false}
           aria-describedby="message-error"
         />
-        <p id="message-error" role="alert" className={`text-error font-semibold text-sm py-1 pl-2 h-7`}>
+        <p id="message-error" role="alert" className={`text-error font-semibold text-sm py-1 pl-2 h-12 md:h-9 min-h-fit`}>
           {isMessageValid === false ? <>{t.formMessageError}</> : null}
         </p>
         <ValidationError prefix="Message" field="message" errors={state.errors} />
 
-        <div className="flex flex-col gap-7 md:flex-row items-center md:justify-between mt-4">
-          <div className="form-control w-full flex flex-col gap-0.5 justify-start h-7">
-            <div className="form-control w-full flex flex-col md:flex-row gap-0.5 justify-start">
+        <div className="flex flex-col justify-center w-full items-center mt-4 min-h-fit mb-3 mb-1">
+          <div className="form-control w-full flex flex-col gap-0.5 justify-start h-12 md:h-9 min-h-fit">
+            <div className="form-control w-full flex flex-row flex-wrap gap-0.5 justify-center md:justify-start">
               <label htmlFor="checkbox" className="flex items-center gap-2">
                 <input
                   id="checkbox"
@@ -185,11 +185,14 @@ const Contact = ({ setMessageSubmitted, setErrorOnSubmit, t }: { setMessageSubmi
               </a>
             </div>
 
+          </div>
+          <div className='min-h-fit h-12 md:h-7'>
             {isTermsAccepted === false && (
-              <p id="terms-error" role="alert" className="text-error text-sm mt-1 h-5">{t.formTermsError}</p>
+              <p id="terms-error" role="alert" className="text-error text-sm mt-1 text-center">{t.formTermsError}</p>
             )}
           </div>
-
+        </div>
+        <div className='w-full flex flex-row justify-center md:justify-end md:-mt-8'>
           <button
             type="submit"
             className={`btn btn-outline ${state.submitting ? 'btn-disabled' : 'btn-accent'} flex flex-row items-center`}

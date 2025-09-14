@@ -13,7 +13,7 @@ export default {
     expLink: 'Experiència',
     projectsLink: 'Projectes',
     contactLink: 'Parlem!',
-    workshopsLink: 'Tutorials',
+    workshopsLink: 'Repositoris',
     academicLink: 'Formació',
     menuLabel: 'Navegació principal'
   },

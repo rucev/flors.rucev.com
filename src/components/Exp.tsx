@@ -34,7 +34,7 @@ const Exp = ({ t }: { t: ExperienceTranslations }) => {
                 {
                   work.stack.map((tech, index) => {
                     const badge = getBadge(tech)
-                    return <li>{
+                    return <li key={index}>{
                       badge && <img className="rounded-lg" key={index} src={badge.url} alt={badge.name} />
                     }</li>
                   })

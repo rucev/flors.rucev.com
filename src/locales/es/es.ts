@@ -13,7 +13,7 @@ export default {
     expLink: 'Experiencia',
     projectsLink: 'Proyectos',
     contactLink: '¡Charlemos!',
-    workshopsLink: 'Tutoriales',
+    workshopsLink: 'Repositorios',
     academicLink: 'Formación',
     menuLabel: 'Navegación principal'
   },
